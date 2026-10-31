@@ -1,0 +1,13 @@
+# Local credentials and build outputs
+.env
+.env.*
+!.env.example
+bin/
+.tools/
+coverage.out
+node_modules/
+*.log
+
+# Python local tooling caches
+__pycache__/
+*.pyc

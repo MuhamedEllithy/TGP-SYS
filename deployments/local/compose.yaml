@@ -1,0 +1,48 @@
+# Dedicated TGP-Sys resources; no external/shared networks or volumes.
+name: tgp-sys-local-dev
+services:
+  postgres:
+    image: postgres:17.11-alpine
+    container_name: tgp-sys-postgres-dev
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?run make env}
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?run make env}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256 --auth-local=scram-sha-256
+      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+      DB_NAME: ${DB_NAME:?run make env}
+      DB_USER: ${DB_USER:?run make env}
+      DB_PASSWORD: ${DB_PASSWORD:?run make env}
+      MIGRATION_USER: ${MIGRATION_USER:?run make env}
+      MIGRATION_PASSWORD: ${MIGRATION_PASSWORD:?run make env}
+      TEST_DB_NAME: ${TEST_DB_NAME:?run make env}
+    ports:
+      - "127.0.0.1:${DB_PORT:?run make env}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/10-tgp-init.sh:ro
+    networks: [database]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -h 127.0.0.1 -U "$$POSTGRES_USER" -d postgres']
+      interval: 2s
+      timeout: 3s
+      retries: 45
+      start_period: 10s
+    restart: "no"
+  migrate:
+    image: migrate/migrate:v4.20.1
+    profiles: [tools]
+    environment:
+      MIGRATION_DATABASE_URL: ${MIGRATION_DATABASE_URL:?run make env}
+    volumes:
+      - ../../db/migrations:/migrations:ro
+      - ./migrate.sh:/run/tgp-migrate.sh:ro
+    entrypoint: [/bin/sh, /run/tgp-migrate.sh]
+    command: [up]
+    networks: [database]
+volumes:
+  postgres_data:
+    name: tgp-sys-postgres17-dev-data
+networks:
+  database:
+    name: tgp-sys-dev-network

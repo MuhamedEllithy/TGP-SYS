@@ -1,0 +1,163 @@
+[
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "0de108d4f6279966c55f52e4a54b47b043f41fbb\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--short"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": " M README.md\n?? .env.example\n?? .github/\n?? .gitignore\n?? AGENTS.md\n?? ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md\n?? Makefile\n?? api/\n?? bruno/\n?? cmd/\n?? db/\n?? deployments/\n?? docs/\n?? go.mod\n?? go.sum\n?? internal/\n?? redocly.yaml\n?? scripts/\n?? tests/\n?? tools/\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "ls-tree",
+      "-r",
+      "--name-only",
+      "0de108d4f6279966c55f52e4a54b47b043f41fbb"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "README.md\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "clone",
+      "--no-local",
+      "--no-hardlinks",
+      "--no-checkout",
+      "/home/muhamed/Projects/TGP-Sys/backend",
+      "/tmp/tgp-phase0-clean-f4s5a0r4/checkout"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "Cloning into '/tmp/tgp-phase0-clean-f4s5a0r4/checkout'...\n"
+  },
+  {
+    "command": [
+      "git",
+      "checkout",
+      "--detach",
+      "0de108d4f6279966c55f52e4a54b47b043f41fbb"
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "HEAD is now at 0de108d first commit\n"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "make",
+      "setup"
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 2,
+    "stdout": "",
+    "stderr": "make: *** No rule to make target 'setup'.  Stop.\n"
+  },
+  {
+    "command": [
+      "/home/muhamed/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.10.linux-amd64/bin/go",
+      "mod",
+      "download"
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "go: no modules specified (see 'go help mod download')\n"
+  },
+  {
+    "command": [
+      "/home/muhamed/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.10.linux-amd64/bin/go",
+      "build",
+      "./..."
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "pattern ./...: directory prefix . does not contain main module or its selected dependencies\n"
+  },
+  {
+    "command": [
+      "/home/muhamed/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.10.linux-amd64/bin/go",
+      "vet",
+      "./..."
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "pattern ./...: directory prefix . does not contain main module or its selected dependencies\n"
+  },
+  {
+    "command": [
+      "/home/muhamed/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.10.linux-amd64/bin/go",
+      "test",
+      "./..."
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 1,
+    "stdout": "FAIL\t./... [setup failed]\nFAIL\n",
+    "stderr": "# ./...\npattern ./...: directory prefix . does not contain main module or its selected dependencies\n"
+  },
+  {
+    "command": [
+      "gofmt",
+      "-l",
+      "cmd",
+      "internal",
+      "api",
+      "tests"
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 2,
+    "stdout": "",
+    "stderr": "stat cmd: no such file or directory\nstat internal: no such file or directory\nstat api: no such file or directory\nstat tests: no such file or directory\n"
+  },
+  {
+    "command": [
+      "make",
+      "openapi-lint"
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 2,
+    "stdout": "",
+    "stderr": "make: *** No rule to make target 'openapi-lint'.  Stop.\n"
+  },
+  {
+    "command": [
+      "git",
+      "ls-files"
+    ],
+    "cwd": "/tmp/tgp-phase0-clean-f4s5a0r4/checkout",
+    "exit_code": 0,
+    "stdout": "README.md\n",
+    "stderr": ""
+  }
+]

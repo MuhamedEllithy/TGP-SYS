@@ -1,0 +1,232 @@
+[
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "0de108d4f6279966c55f52e4a54b47b043f41fbb\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "clone",
+      "--no-local",
+      "--no-hardlinks",
+      "--no-checkout",
+      "/home/muhamed/Projects/TGP-Sys/backend",
+      "/tmp/tgp-phase0-recovery-9vdwwwub/candidate"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "Cloning into '/tmp/tgp-phase0-recovery-9vdwwwub/candidate'...\n"
+  },
+  {
+    "command": [
+      "git",
+      "checkout",
+      "-b",
+      "phase0-recovery-candidate",
+      "0de108d4f6279966c55f52e4a54b47b043f41fbb"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "Switched to a new branch 'phase0-recovery-candidate'\n"
+  },
+  {
+    "command": [
+      "git",
+      "add",
+      "--",
+      ".env.example",
+      ".github/workflows/ci.yml",
+      ".gitignore",
+      "AGENTS.md",
+      "ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md",
+      "Makefile",
+      "README.md",
+      "api/docs.html",
+      "api/embed.go",
+      "api/openapi.yaml",
+      "bruno/README.md",
+      "bruno/assets-not-found.bru",
+      "bruno/bruno.json",
+      "bruno/environments/local.bru",
+      "bruno/health-live.bru",
+      "bruno/health-method-not-allowed.bru",
+      "bruno/health-ready.bru",
+      "cmd/api/main.go",
+      "cmd/dbcheck/main.go",
+      "db/migrations/000001_platform_probe.down.sql",
+      "db/migrations/000001_platform_probe.up.sql",
+      "deployments/local/compose.yaml",
+      "deployments/local/init-db.sh",
+      "deployments/local/migrate.sh",
+      "docs/architecture/overview.md",
+      "docs/architecture/phase-00-acceptance-review.md",
+      "docs/database/local.md",
+      "docs/decisions/0001-go-http-modular-monolith.md",
+      "docs/decisions/0002-postgresql.md",
+      "docs/decisions/0003-db-migrations.md",
+      "docs/decisions/0004-identity-codes.md",
+      "docs/decisions/0005-authentication-authorization.md",
+      "docs/decisions/0006-openapi-docs.md",
+      "docs/decisions/0007-private-storage.md",
+      "docs/decisions/0008-ci-testing.md",
+      "docs/decisions/0009-config-status-movements.md",
+      "docs/decisions/0010-consistency-open-decisions.md",
+      "docs/decisions/0011-dedicated-postgresql17-local.md",
+      "docs/decisions/README.md",
+      "docs/phases/evidence/phase-00-bruno-transport.json",
+      "docs/phases/evidence/phase-00-clean-checkout.json",
+      "docs/phases/phase-00-browser-checklist.md",
+      "docs/phases/phase-00-git-recovery.md",
+      "docs/phases/phase-00-report.md",
+      "docs/phases/phase-00-staging-manifest.txt",
+      "docs/phases/phase-00-verification-history.md",
+      "docs/requirements/traceability.md",
+      "go.mod",
+      "go.sum",
+      "internal/platform/config/config.go",
+      "internal/platform/config/config_test.go",
+      "internal/platform/db/db.go",
+      "internal/platform/httpx/server.go",
+      "internal/platform/httpx/server_test.go",
+      "redocly.yaml",
+      "scripts/api_smoke.py",
+      "scripts/db_preflight.py",
+      "scripts/local_env.py",
+      "scripts/migrate.py",
+      "scripts/test_local_env.py",
+      "scripts/verify_phase0.sh",
+      "tests/integration/db_test.go",
+      "tools/go.mod",
+      "tools/package-lock.json",
+      "tools/package.json"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "ls-files"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+    "exit_code": 0,
+    "stdout": ".env.example\n.github/workflows/ci.yml\n.gitignore\nAGENTS.md\nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md\nMakefile\nREADME.md\napi/docs.html\napi/embed.go\napi/openapi.yaml\nbruno/README.md\nbruno/assets-not-found.bru\nbruno/bruno.json\nbruno/environments/local.bru\nbruno/health-live.bru\nbruno/health-method-not-allowed.bru\nbruno/health-ready.bru\ncmd/api/main.go\ncmd/dbcheck/main.go\ndb/migrations/000001_platform_probe.down.sql\ndb/migrations/000001_platform_probe.up.sql\ndeployments/local/compose.yaml\ndeployments/local/init-db.sh\ndeployments/local/migrate.sh\ndocs/architecture/overview.md\ndocs/architecture/phase-00-acceptance-review.md\ndocs/database/local.md\ndocs/decisions/0001-go-http-modular-monolith.md\ndocs/decisions/0002-postgresql.md\ndocs/decisions/0003-db-migrations.md\ndocs/decisions/0004-identity-codes.md\ndocs/decisions/0005-authentication-authorization.md\ndocs/decisions/0006-openapi-docs.md\ndocs/decisions/0007-private-storage.md\ndocs/decisions/0008-ci-testing.md\ndocs/decisions/0009-config-status-movements.md\ndocs/decisions/0010-consistency-open-decisions.md\ndocs/decisions/0011-dedicated-postgresql17-local.md\ndocs/decisions/README.md\ndocs/phases/evidence/phase-00-bruno-transport.json\ndocs/phases/evidence/phase-00-clean-checkout.json\ndocs/phases/phase-00-browser-checklist.md\ndocs/phases/phase-00-git-recovery.md\ndocs/phases/phase-00-report.md\ndocs/phases/phase-00-staging-manifest.txt\ndocs/phases/phase-00-verification-history.md\ndocs/requirements/traceability.md\ngo.mod\ngo.sum\ninternal/platform/config/config.go\ninternal/platform/config/config_test.go\ninternal/platform/db/db.go\ninternal/platform/httpx/server.go\ninternal/platform/httpx/server_test.go\nredocly.yaml\nscripts/api_smoke.py\nscripts/db_preflight.py\nscripts/local_env.py\nscripts/migrate.py\nscripts/test_local_env.py\nscripts/verify_phase0.sh\ntests/integration/db_test.go\ntools/go.mod\ntools/package-lock.json\ntools/package.json\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--cached",
+      "--check"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+    "exit_code": 2,
+    "stdout": "ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md:3: trailing whitespace.\n+**Project:** Multi-project Facility & Mall Management Platform  \nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md:4: trailing whitespace.\n+**Initial deployment:** The Gate Plaza (Egypt)  \nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md:5: trailing whitespace.\n+**Delivery owner:** Codex, working in gated implementation phases  \nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md:6: trailing whitespace.\n+**Document type:** Product SRS + Backend Architecture Blueprint + API Contract Plan + Implementation Runbook  \nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md:7: trailing whitespace.\n+**Version:** 1.0 \u2014 Baseline scope agreed 2026-10-31  \nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md:8: trailing whitespace.\n+**Status:** Approved *functional direction*; detailed technical decisions and schemas below are **proposals to validate during design**, not proof of implementation.  \nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md:9: trailing whitespace.\n+**Language:** English is intentional to make this document directly usable by Codex.  \ndocs/decisions/0001-go-http-modular-monolith.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0002-postgresql.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0003-db-migrations.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0004-identity-codes.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0005-authentication-authorization.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0006-openapi-docs.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0007-private-storage.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0008-ci-testing.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0009-config-status-movements.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0010-consistency-open-decisions.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0011-dedicated-postgresql17-local.md:3: trailing whitespace.\n+Date: 2026-10-31  \ndocs/decisions/0011-dedicated-postgresql17-local.md:4: trailing whitespace.\n+Status: Adopted; PostgreSQL/auth/migration host checks owner-reported PASS  \ndocs/phases/phase-00-report.md:3: trailing whitespace.\n+Overall result: **BLOCKED**  \ndocs/phases/phase-00-report.md:4: trailing whitespace.\n+Review date: 2026-10-31  \ndocs/phases/phase-00-report.md:5: trailing whitespace.\n+Exact tested Git revision: `0de108d4f6279966c55f52e4a54b47b043f41fbb`  \ndocs/phases/phase-00-report.md:6: trailing whitespace.\n+Working branch: `main`; detached isolated checkout created outside the repository.  \ndocs/phases/phase-00-verification-history.md:9: trailing whitespace.\n+Date: 2026-10-31  \ndocs/phases/phase-00-verification-history.md:10: trailing whitespace.\n+Status: **PARTIALLY COMPLETE \u2014 ACCEPTANCE BLOCKED**  \ndocs/phases/phase-00-verification-history.md:11: trailing whitespace.\n+Commit/branch: unavailable; the supplied `.git` directory is not a valid repository. No Git initialization, commit, push or deployment was performed.  \ndocs/phases/phase-00-verification-history.md:246: trailing whitespace.\n+Date: 2026-10-31  \ndocs/phases/phase-00-verification-history.md:354: trailing whitespace.\n+Review date: 2026-10-31 (host execution timestamp not supplied)  \ndocs/phases/phase-00-verification-history.md:355: trailing whitespace.\n+Status: **READY FOR OWNER REVIEW**  \ndocs/phases/phase-00-verification-history.md:356: trailing whitespace.\n+Overall acceptance: **PENDING** \u2014 fresh-clone bootstrap evidence and owner sign-off remain outstanding; manual Scalar Browser Try-it is unverified.  \ndocs/phases/phase-00-verification-history.md:357: trailing whitespace.\n+Scope: **Phase 0 only. Phase 1 NOT STARTED.**  \ndocs/phases/phase-00-verification-history.md:358: trailing whitespace.\n+Evidence source: owner's authorized WSL host verification summary in this conversation, supplemented by direct sandbox checks below.  \n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "commit",
+      "-m",
+      "chore(phase0): establish Go backend foundation"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+    "exit_code": 0,
+    "stdout": "[phase0-recovery-candidate e7c15ca] chore(phase0): establish Go backend foundation\n 65 files changed, 8162 insertions(+), 50 deletions(-)\n create mode 100644 .env.example\n create mode 100644 .github/workflows/ci.yml\n create mode 100644 .gitignore\n create mode 100644 AGENTS.md\n create mode 100644 ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md\n create mode 100644 Makefile\n create mode 100644 api/docs.html\n create mode 100644 api/embed.go\n create mode 100644 api/openapi.yaml\n create mode 100644 bruno/README.md\n create mode 100644 bruno/assets-not-found.bru\n create mode 100644 bruno/bruno.json\n create mode 100644 bruno/environments/local.bru\n create mode 100644 bruno/health-live.bru\n create mode 100644 bruno/health-method-not-allowed.bru\n create mode 100644 bruno/health-ready.bru\n create mode 100644 cmd/api/main.go\n create mode 100644 cmd/dbcheck/main.go\n create mode 100644 db/migrations/000001_platform_probe.down.sql\n create mode 100644 db/migrations/000001_platform_probe.up.sql\n create mode 100644 deployments/local/compose.yaml\n create mode 100755 deployments/local/init-db.sh\n create mode 100644 deployments/local/migrate.sh\n create mode 100644 docs/architecture/overview.md\n create mode 100644 docs/architecture/phase-00-acceptance-review.md\n create mode 100644 docs/database/local.md\n create mode 100644 docs/decisions/0001-go-http-modular-monolith.md\n create mode 100644 docs/decisions/0002-postgresql.md\n create mode 100644 docs/decisions/0003-db-migrations.md\n create mode 100644 docs/decisions/0004-identity-codes.md\n create mode 100644 docs/decisions/0005-authentication-authorization.md\n create mode 100644 docs/decisions/0006-openapi-docs.md\n create mode 100644 docs/decisions/0007-private-storage.md\n create mode 100644 docs/decisions/0008-ci-testing.md\n create mode 100644 docs/decisions/0009-config-status-movements.md\n create mode 100644 docs/decisions/0010-consistency-open-decisions.md\n create mode 100644 docs/decisions/0011-dedicated-postgresql17-local.md\n create mode 100644 docs/decisions/README.md\n create mode 100644 docs/phases/evidence/phase-00-bruno-transport.json\n create mode 100644 docs/phases/evidence/phase-00-clean-checkout.json\n create mode 100644 docs/phases/phase-00-browser-checklist.md\n create mode 100644 docs/phases/phase-00-git-recovery.md\n create mode 100644 docs/phases/phase-00-report.md\n create mode 100644 docs/phases/phase-00-staging-manifest.txt\n create mode 100644 docs/phases/phase-00-verification-history.md\n create mode 100644 docs/requirements/traceability.md\n create mode 100644 go.mod\n create mode 100644 go.sum\n create mode 100644 internal/platform/config/config.go\n create mode 100644 internal/platform/config/config_test.go\n create mode 100644 internal/platform/db/db.go\n create mode 100644 internal/platform/httpx/server.go\n create mode 100644 internal/platform/httpx/server_test.go\n create mode 100644 redocly.yaml\n create mode 100644 scripts/api_smoke.py\n create mode 100644 scripts/db_preflight.py\n create mode 100644 scripts/local_env.py\n create mode 100644 scripts/migrate.py\n create mode 100644 scripts/test_local_env.py\n create mode 100644 scripts/verify_phase0.sh\n create mode 100644 tests/integration/db_test.go\n create mode 100644 tools/go.mod\n create mode 100644 tools/package-lock.json\n create mode 100644 tools/package.json\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+    "exit_code": 0,
+    "stdout": "e7c15cac3a120c9977f1503226c8424bf9c06c80\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "clone",
+      "--no-local",
+      "--no-hardlinks",
+      "--no-checkout",
+      "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+      "/tmp/tgp-phase0-recovery-9vdwwwub/checkout"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "Cloning into '/tmp/tgp-phase0-recovery-9vdwwwub/checkout'...\n"
+  },
+  {
+    "command": [
+      "git",
+      "checkout",
+      "--detach",
+      "e7c15cac3a120c9977f1503226c8424bf9c06c80"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "HEAD is now at e7c15ca chore(phase0): establish Go backend foundation\n"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "ls-files"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/checkout",
+    "exit_code": 0,
+    "stdout": ".env.example\n.github/workflows/ci.yml\n.gitignore\nAGENTS.md\nASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md\nMakefile\nREADME.md\napi/docs.html\napi/embed.go\napi/openapi.yaml\nbruno/README.md\nbruno/assets-not-found.bru\nbruno/bruno.json\nbruno/environments/local.bru\nbruno/health-live.bru\nbruno/health-method-not-allowed.bru\nbruno/health-ready.bru\ncmd/api/main.go\ncmd/dbcheck/main.go\ndb/migrations/000001_platform_probe.down.sql\ndb/migrations/000001_platform_probe.up.sql\ndeployments/local/compose.yaml\ndeployments/local/init-db.sh\ndeployments/local/migrate.sh\ndocs/architecture/overview.md\ndocs/architecture/phase-00-acceptance-review.md\ndocs/database/local.md\ndocs/decisions/0001-go-http-modular-monolith.md\ndocs/decisions/0002-postgresql.md\ndocs/decisions/0003-db-migrations.md\ndocs/decisions/0004-identity-codes.md\ndocs/decisions/0005-authentication-authorization.md\ndocs/decisions/0006-openapi-docs.md\ndocs/decisions/0007-private-storage.md\ndocs/decisions/0008-ci-testing.md\ndocs/decisions/0009-config-status-movements.md\ndocs/decisions/0010-consistency-open-decisions.md\ndocs/decisions/0011-dedicated-postgresql17-local.md\ndocs/decisions/README.md\ndocs/phases/evidence/phase-00-bruno-transport.json\ndocs/phases/evidence/phase-00-clean-checkout.json\ndocs/phases/phase-00-browser-checklist.md\ndocs/phases/phase-00-git-recovery.md\ndocs/phases/phase-00-report.md\ndocs/phases/phase-00-staging-manifest.txt\ndocs/phases/phase-00-verification-history.md\ndocs/requirements/traceability.md\ngo.mod\ngo.sum\ninternal/platform/config/config.go\ninternal/platform/config/config_test.go\ninternal/platform/db/db.go\ninternal/platform/httpx/server.go\ninternal/platform/httpx/server_test.go\nredocly.yaml\nscripts/api_smoke.py\nscripts/db_preflight.py\nscripts/local_env.py\nscripts/migrate.py\nscripts/test_local_env.py\nscripts/verify_phase0.sh\ntests/integration/db_test.go\ntools/go.mod\ntools/package-lock.json\ntools/package.json\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "0de108d4f6279966c55f52e4a54b47b043f41fbb\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD^{tree}"
+    ],
+    "cwd": "/tmp/tgp-phase0-recovery-9vdwwwub/candidate",
+    "exit_code": 0,
+    "stdout": "268eb702c28523332d265920a50eaad7ac68f4f0\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,28 @@
+meta {
+  name: Unimplemented asset route is not exposed
+  type: http
+  seq: 3
+}
+get {
+  url: {{base_url}}/api/v1/assets
+  body: none
+  auth: none
+}
+assert {
+  res.status: 404
+  res.body.error.code: not_found
+  res.body.error.message: Resource not found
+}
+
+tests {
+  test("JSON response correlation matches the server header", function () {
+    const body = res.getBody();
+    expect(body.meta.request_id).to.match(/^[a-f0-9]{32}$/);
+    expect(res.getHeader("x-request-id")).to.equal(body.meta.request_id);
+    expect(res.getHeader("content-type")).to.include("application/json");
+  });
+  test("Error details are empty and no successful data is returned", function () {
+    expect(res.getBody().error.details).to.be.an("array").that.is.empty;
+    expect(res.getBody()).not.to.have.property("data");
+  });
+}

@@ -1,0 +1,362 @@
+{
+  "original_commit": "0de108d4f6279966c55f52e4a54b47b043f41fbb",
+  "candidate_commit": "e7c15cac3a120c9977f1503226c8424bf9c06c80",
+  "candidate_tree": "268eb702c28523332d265920a50eaad7ac68f4f0",
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "4bac8ff301adeb8b4b948ccb6c3580e9361885b1de917d92c6289625698bffae",
+      "bytes": 1098
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "cb2d99a5dd7af2ec4170f6b2674cfb1b01ab7f88a07edb36e8ade3b91e3d75f2",
+      "bytes": 905
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "35de3d0d0b388476041ae3d6af42b8aee2063231e420fbb007d4452e54efb0ad",
+      "bytes": 160
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "d7fcd3293c06da87f3b5dc16a0aa0ca753134c11a5db51bcc5f17339123a54c0",
+      "bytes": 1911
+    },
+    {
+      "path": "ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md",
+      "sha256": "a9921d1134dd82fd27d828fbe53d7134d44b77d4b8946e3394234d3aaa7e9cf1",
+      "bytes": 67865
+    },
+    {
+      "path": "Makefile",
+      "sha256": "d852a16bcdb8b62f873652dd25b3bc9306b39e50a9717fa324b1b806c757367e",
+      "bytes": 1639
+    },
+    {
+      "path": "README.md",
+      "sha256": "5954f30310136afd668fa9aba0a94d7ee62a4b1074fa27012c0ca2fd508a2104",
+      "bytes": 5369
+    },
+    {
+      "path": "api/docs.html",
+      "sha256": "2d2159f6402489e3d610bb85f8a240c6fb9b479ac1791b99ae611ca689b78426",
+      "bytes": 503
+    },
+    {
+      "path": "api/embed.go",
+      "sha256": "9b6a790f565369aa3f279339a62a8e0a1f6d377b9c58c4e3953883de6842e748",
+      "bytes": 193
+    },
+    {
+      "path": "api/openapi.yaml",
+      "sha256": "a4151521d60d341b40108d5d526d951c8781d2e97365be507cb5e2eee98da43f",
+      "bytes": 8284
+    },
+    {
+      "path": "bruno/README.md",
+      "sha256": "b8f86b9b7ea30c777b6c16072b90d1bd47a37eddd75ba3a0b370e23189e57b6f",
+      "bytes": 3106
+    },
+    {
+      "path": "bruno/assets-not-found.bru",
+      "sha256": "ec8b24a3a594f4818417452cdb4f5221dce4c40f3ba7969cdee0360ef99cdff9",
+      "bytes": 807
+    },
+    {
+      "path": "bruno/bruno.json",
+      "sha256": "0ce998b1abf25934e6c8c97e0510b3228c15c0ffced8f3beb3614b6e5b5b5ce0",
+      "bytes": 95
+    },
+    {
+      "path": "bruno/environments/local.bru",
+      "sha256": "44474fa7cff8f08a6d4a874b8a4e188622dd2b5d9c2ac82bcf534c28b7ea8410",
+      "bytes": 43
+    },
+    {
+      "path": "bruno/health-live.bru",
+      "sha256": "201e27ae97719bfe3139b10840efcdfe9a76d8bc6c04e51eb2ab3864b80957fb",
+      "bytes": 506
+    },
+    {
+      "path": "bruno/health-method-not-allowed.bru",
+      "sha256": "ad853fa57e6a20791b4b56c0277e31416326733ce1daa24b589360f031ecdbd2",
+      "bytes": 930
+    },
+    {
+      "path": "bruno/health-ready.bru",
+      "sha256": "4c1c5784b083ecb92a12d02b7718547e0bba3e5200fb35959725598ae6fc023b",
+      "bytes": 543
+    },
+    {
+      "path": "cmd/api/main.go",
+      "sha256": "dc9ef97016f80a5a854a529c24f92293fb6527d9b67adce80330e60e4394b212",
+      "bytes": 1726
+    },
+    {
+      "path": "cmd/dbcheck/main.go",
+      "sha256": "f700c91c22e633711bd7035f7f8c5c6179e091b75cdce461c2bb59918f7e43e2",
+      "bytes": 3885
+    },
+    {
+      "path": "db/migrations/000001_platform_probe.down.sql",
+      "sha256": "457a1664532afa87936f949f2dc44b28ba407adec0a01fbd10c3729a7abaef5f",
+      "bytes": 118
+    },
+    {
+      "path": "db/migrations/000001_platform_probe.up.sql",
+      "sha256": "744d2449772639eec256fc83887bc2c30c40f7a4599631f0535bcdd3bb15f793",
+      "bytes": 312
+    },
+    {
+      "path": "deployments/local/compose.yaml",
+      "sha256": "cc5341cc68380ce08bc2ca68742dd0e5d78adc07b21e39191ce535950af52ddb",
+      "bytes": 1642
+    },
+    {
+      "path": "deployments/local/init-db.sh",
+      "sha256": "8ab4a7e19270c56939570d25329904b563a7646221ce13743048c35488c66d22",
+      "bytes": 1603
+    },
+    {
+      "path": "deployments/local/migrate.sh",
+      "sha256": "3054db2b996665ccaca00abc6d94d26ecab77d2d2fdc28ec77f81bd2ea0b7530",
+      "bytes": 157
+    },
+    {
+      "path": "docs/architecture/overview.md",
+      "sha256": "fd0bd91e525d706dddffb1e0f42a4b24dff80f42c20009dadca60a6f64d6de17",
+      "bytes": 4258
+    },
+    {
+      "path": "docs/architecture/phase-00-acceptance-review.md",
+      "sha256": "797cb37db3be256948aeb77a5d92bcde87b604f8cbf168e952dfd9bcbe551095",
+      "bytes": 7244
+    },
+    {
+      "path": "docs/database/local.md",
+      "sha256": "73363dcf33f366355fc58129a10304c2ef60d775c33e898071fefbd185081871",
+      "bytes": 6949
+    },
+    {
+      "path": "docs/decisions/0001-go-http-modular-monolith.md",
+      "sha256": "4e56731cac2c0faea02712c5c758695466864b013dcf6289851aaf72d55a1b57",
+      "bytes": 1251
+    },
+    {
+      "path": "docs/decisions/0002-postgresql.md",
+      "sha256": "dad28df1bd561735152186bcc5ce576af807c2862847304b6ab41610a84d339a",
+      "bytes": 1316
+    },
+    {
+      "path": "docs/decisions/0003-db-migrations.md",
+      "sha256": "4e2c140c598ead22c7fb0cc1b7e5cba74f31dbaa2d6ca5c49531ce11ae440507",
+      "bytes": 2187
+    },
+    {
+      "path": "docs/decisions/0004-identity-codes.md",
+      "sha256": "c71387dea94d2c0e45defbc11250991b0719bf593e84ad3af441b25d9b5b674d",
+      "bytes": 1360
+    },
+    {
+      "path": "docs/decisions/0005-authentication-authorization.md",
+      "sha256": "d9839513ecb3b380ad2574a4ec6392150e54390f8f62f928ae9c32114a53b6ab",
+      "bytes": 1542
+    },
+    {
+      "path": "docs/decisions/0006-openapi-docs.md",
+      "sha256": "5d5e2b38c48653534657ab977750b0b7165e30821db448c16a35c6d64789964c",
+      "bytes": 1568
+    },
+    {
+      "path": "docs/decisions/0007-private-storage.md",
+      "sha256": "169e5b22545cc3050876906345cbdac2f5de847898d8a64c3495026dd3d4deb3",
+      "bytes": 1358
+    },
+    {
+      "path": "docs/decisions/0008-ci-testing.md",
+      "sha256": "46ecb933843d151169766adf81afd1eac767152a9dd9c086c14c5983bb563e98",
+      "bytes": 1402
+    },
+    {
+      "path": "docs/decisions/0009-config-status-movements.md",
+      "sha256": "6b21eaa83c7cda6f876e44a776408755213f8ca7c102efffecf9cb38bff0fe2c",
+      "bytes": 1384
+    },
+    {
+      "path": "docs/decisions/0010-consistency-open-decisions.md",
+      "sha256": "cb1fc10af27fe1089449373aab5c5eea90cdee8feb098fc56bf9b8871687b643",
+      "bytes": 1511
+    },
+    {
+      "path": "docs/decisions/0011-dedicated-postgresql17-local.md",
+      "sha256": "ddbff66a0bb8f0be4ee88b2b5d761e7d0d7d6744cf292364216cd676decfcefc",
+      "bytes": 5282
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "sha256": "6ea22133ccb66619589ae0fbbc742a59bedd3bc1fe3de6985f6d5da9240ad6eb",
+      "bytes": 2928
+    },
+    {
+      "path": "docs/phases/evidence/phase-00-bruno-transport.json",
+      "sha256": "862360065ffcb8e0dd943c6848cf416647a8d961d0970c847cf187050431ddb9",
+      "bytes": 489
+    },
+    {
+      "path": "docs/phases/evidence/phase-00-clean-checkout.json",
+      "sha256": "65ffed3e8751cfaa7c4022ca8e7cc5e9073b66c79904a1c028a2f8891b389914",
+      "bytes": 4264
+    },
+    {
+      "path": "docs/phases/phase-00-browser-checklist.md",
+      "sha256": "de972fa6355229715db9f5bdf1754cbfd3d81716393bdec94e6304dff1086dfc",
+      "bytes": 4493
+    },
+    {
+      "path": "docs/phases/phase-00-git-recovery.md",
+      "sha256": "ab8eef54c3d295553423cfc1f873d0b790ff70e9f8fa88f5844d635d05341dc4",
+      "bytes": 4286
+    },
+    {
+      "path": "docs/phases/phase-00-report.md",
+      "sha256": "c56f2b264aefc53cebda76b3c4e018b03e056a9040c671f82f71001f36d1c979",
+      "bytes": 17831
+    },
+    {
+      "path": "docs/phases/phase-00-staging-manifest.txt",
+      "sha256": "3725794b7e41c45dc17c806d463a3d840221e559e5a721b47f3c57c5320abdcd",
+      "bytes": 1893
+    },
+    {
+      "path": "docs/phases/phase-00-verification-history.md",
+      "sha256": "775f0cee0379ed2b4e37d3e8a922f73207fd9a8cae9204a5ddd958f1fc4e401a",
+      "bytes": 59708
+    },
+    {
+      "path": "docs/requirements/traceability.md",
+      "sha256": "a66a1cd3e24753945acc9aadbb0537f50735339101cde3021c32b4b39dbd62ad",
+      "bytes": 9289
+    },
+    {
+      "path": "go.mod",
+      "sha256": "8f727c17eaad07ef0dc1eeb760f896d218f641df21f48d59ecf7c5e39cf5745b",
+      "bytes": 370
+    },
+    {
+      "path": "go.sum",
+      "sha256": "a5e7a8db07eba28dbde48bf9a54c4e9084a5a95ded581c0ff44c08b74e3dfe69",
+      "bytes": 2301
+    },
+    {
+      "path": "internal/platform/config/config.go",
+      "sha256": "996c3916836445af90e888a516bb0a0b7672883de61f9a7e41961def57c7aa7d",
+      "bytes": 2535
+    },
+    {
+      "path": "internal/platform/config/config_test.go",
+      "sha256": "0818165232b1564c06691b3e5313fef488e68aac15927845e5f3612a3c7b998c",
+      "bytes": 1868
+    },
+    {
+      "path": "internal/platform/db/db.go",
+      "sha256": "c7b64ca1c870520d27a61e2f52dba9dd38f082b0bb3982241f0bfc21571ee269",
+      "bytes": 632
+    },
+    {
+      "path": "internal/platform/httpx/server.go",
+      "sha256": "e658f533e491a9cf4dea67ff58ad69ef8e57c9001629d2157cc8c75fa622eba6",
+      "bytes": 3567
+    },
+    {
+      "path": "internal/platform/httpx/server_test.go",
+      "sha256": "e7cbd66d5025b9d1535c869a4ef36cbabe4be80f5850237bb272fda602fdce93",
+      "bytes": 2993
+    },
+    {
+      "path": "redocly.yaml",
+      "sha256": "35a08335409d023d9649d37424758bc7d4db0b14d7f5cbd11e9c5a50abf03503",
+      "bytes": 107
+    },
+    {
+      "path": "scripts/api_smoke.py",
+      "sha256": "ac535c5fb51330aad66400a1f5bdb0022e509328c925108b03306f357825148c",
+      "bytes": 628
+    },
+    {
+      "path": "scripts/db_preflight.py",
+      "sha256": "6ae280aaf88bc38e468b0d41bc6a5295f408764a1753ced98f5cfb53a757a149",
+      "bytes": 4802
+    },
+    {
+      "path": "scripts/local_env.py",
+      "sha256": "bd8b5747b6729130d911e8b936bdefb21782b692f3f51a23a4343b058ae39041",
+      "bytes": 8020
+    },
+    {
+      "path": "scripts/migrate.py",
+      "sha256": "38da8c62874eab17ee970901b1485dfb4bbd95a61e69abbc45c59cb7a657c2fe",
+      "bytes": 2639
+    },
+    {
+      "path": "scripts/test_local_env.py",
+      "sha256": "1fb014ebd7d58402c5c7b0d99a8db10bdbe5a9b0a7129953a27fe9cec63c223c",
+      "bytes": 4634
+    },
+    {
+      "path": "scripts/verify_phase0.sh",
+      "sha256": "7eebc8475349ea254f977b5e28bb7862fabe483a5bf00fe15e23a9102500a1c1",
+      "bytes": 2356
+    },
+    {
+      "path": "tests/integration/db_test.go",
+      "sha256": "ea5615f87b046fc1f92c6740eee5381f51c47fc9fa2651ce483603cbe713fe7d",
+      "bytes": 1490
+    },
+    {
+      "path": "tools/go.mod",
+      "sha256": "404eaeb7a2291741b47c05db7d1c918df1bb6f9b8f57c6320d008467711da748",
+      "bytes": 174
+    },
+    {
+      "path": "tools/package-lock.json",
+      "sha256": "984dc06a70cb4429cac31f1378f64d9db02b04af3bea8afbcf6de0ad18b71e70",
+      "bytes": 151881
+    },
+    {
+      "path": "tools/package.json",
+      "sha256": "4166d229e25c43d855e00a0a043d77bde5b6f37c314740b841dc58962a4785d0",
+      "bytes": 293
+    }
+  ],
+  "bootstrap_environment": {
+    "GOMODCACHE": "/tmp/tgp-phase0-recovery-9vdwwwub/module-cache",
+    "GOCACHE": "/tmp/tgp-phase0-recovery-9vdwwwub/build-cache",
+    "GOPROXY": "file:///home/muhamed/go/pkg/mod/cache/download",
+    "GOSUMDB": "off",
+    "npm_config_offline": "true",
+    "npm_config_cache": "/tmp/facility-npm-cache"
+  },
+  "bundle": ".tools/phase0-recovery-e7c15cac.bundle",
+  "retained_bundle_check": {
+    "result": "PASS",
+    "command": [
+      "git",
+      "clone",
+      "--no-hardlinks",
+      "--branch",
+      "phase0-recovery-candidate",
+      "/home/muhamed/Projects/TGP-Sys/backend/.tools/phase0-recovery-e7c15cac.bundle",
+      "/tmp/tgp-phase0-bundle-check-heh0pv02/checkout"
+    ],
+    "commit": "e7c15cac3a120c9977f1503226c8424bf9c06c80",
+    "files_verified": 65,
+    "method": "actual named-branch clone of bundle and all committed file SHA-256 comparisons",
+    "temporary_clone_removed": true,
+    "initial_attempt": {
+      "command": "git clone --no-hardlinks <bundle> <temporary-checkout>",
+      "exit_code": 0,
+      "head_selection": "rev-parse HEAD exited 128 because bundle advertises only named branch; corrected with explicit --branch"
+    }
+  }
+}

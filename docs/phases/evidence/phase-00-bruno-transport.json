@@ -1,0 +1,23 @@
+{
+  "tool": "@usebruno/cli",
+  "version": "4.0.0",
+  "cwd": "bruno",
+  "command": [
+    "bru",
+    "run",
+    "--env",
+    "local",
+    "--sandbox",
+    "safe",
+    "--reporter-json",
+    "/tmp/tgp-phase0-bruno-results.json"
+  ],
+  "exit_code": 1,
+  "result": "BLOCKED",
+  "transport_error": "connect EPERM 127.0.0.1:8080",
+  "requests_attempted": 4,
+  "requests_with_responses": 0,
+  "tests_executed": 0,
+  "assertions_executed": 0,
+  "raw_report": "/tmp/tgp-phase0-bruno-results.json"
+}

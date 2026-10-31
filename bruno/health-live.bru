@@ -1,0 +1,23 @@
+meta {
+  name: Liveness
+  type: http
+  seq: 1
+}
+get {
+  url: {{base_url}}/health/live
+  body: none
+  auth: none
+}
+assert {
+  res.status: 200
+  res.body.data.status: live
+}
+
+tests {
+  test("JSON response correlation matches the server header", function () {
+    const body = res.getBody();
+    expect(body.meta.request_id).to.match(/^[a-f0-9]{32}$/);
+    expect(res.getHeader("x-request-id")).to.equal(body.meta.request_id);
+    expect(res.getHeader("content-type")).to.include("application/json");
+  });
+}

@@ -1,0 +1,14 @@
+{
+  "name": "facility-contract-tools",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "redocly lint ../api/openapi.yaml --config ../redocly.yaml"
+  },
+  "devDependencies": {
+    "@redocly/cli": "2.72.1"
+  },
+  "dependencies": {
+    "@scalar/api-reference": "1.76.4"
+  }
+}

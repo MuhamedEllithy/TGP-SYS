@@ -1,0 +1,31 @@
+meta {
+  name: Probe rejects unsupported method
+  type: http
+  seq: 4
+}
+post {
+  url: {{base_url}}/health/live
+  body: none
+  auth: none
+}
+assert {
+  res.status: 405
+  res.body.error.code: method_not_allowed
+  res.body.error.message: Method not allowed
+}
+
+tests {
+  test("JSON response correlation matches the server header", function () {
+    const body = res.getBody();
+    expect(body.meta.request_id).to.match(/^[a-f0-9]{32}$/);
+    expect(res.getHeader("x-request-id")).to.equal(body.meta.request_id);
+    expect(res.getHeader("content-type")).to.include("application/json");
+  });
+  test("Error details are empty and no successful data is returned", function () {
+    expect(res.getBody().error.details).to.be.an("array").that.is.empty;
+    expect(res.getBody()).not.to.have.property("data");
+  });
+  test("Allow advertises only GET and HEAD", function () {
+    expect(res.getHeader("allow")).to.equal("GET, HEAD");
+  });
+}

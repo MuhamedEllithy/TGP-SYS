@@ -1,76 +1,66 @@
 # Facility Management Backend
 
-Phase 0 foundation for a multi-project facility management modular monolith, initially The Gate Plaza. **Backend only; no business modules or authentication are implemented.** The [master plan](ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md) defines the functional baseline. See the [Phase 0 report](docs/phases/phase-00-report.md) for actual verification status and blockers.
+Phase 0 Go modular-monolith foundation for TGP-Sys, initially The Gate Plaza. Backend only; no business modules or authentication are implemented. The [master plan](ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md) is authoritative. [Phase 0 report](docs/phases/phase-00-report.md) records actual passes and blockers; Host automated verification is owner-reported PASS. Final acceptance is BLOCKED by the sandbox read-only original Git metadata and live sockets. An isolated complete candidate commit passed clean-checkout offline bootstrap/tests; Scalar browser interaction is PENDING MANUAL VERIFICATION. See the current report for exact SHA/provenance and the [Git recovery guide](docs/phases/phase-00-git-recovery.md).
 
-## Requirements and setup
+## Local setup (owner's WSL terminal)
 
-Go **1.26.10**, Docker Engine + Compose v2+, Node 24.21.0/npm 11.19.0 for contract tooling, Python 3 for network smoke tests, and outbound dependency registry access. Go can automatically select the pinned toolchain. Module path `gateplaza.local/facility` is an internal placeholder; select the real repository import path before distributing Go packages.
+Requires Go 1.26.10 (automatic toolchain selection), Docker/Compose, Node 24.21.0/npm 11.19.0 and Python 3. No business UI or deployment service is built.
 
 ```sh
-make setup
-# Edit .env: replace BOTH occurrences of the local password.
-# Use URL-safe characters (e.g. openssl rand -hex 24); never commit .env.
+cd ~/Projects/TGP-Sys/backend
+make env
+# Before the FIRST container creation only:
+python3 scripts/local_env.py --select-port
 make db-up
-make migrate-up
-make run
+make verify-phase0
 ```
 
-`make setup` copies `.env.example` only if `.env` does not exist, then resolves Go modules and installs documentation tools. **Bootstrap currently requires Go dependency-lock completion on an unrestricted host**: `go mod tidy` must generate `go.sum`. The npm lockfile is present and Redocly lint passes. Go dependencies could not be downloaded in the restricted implementation environment; Phase 0 is not accepted until `go.sum` is generated, reviewed and checked in and the full gate is rerun. Do not use this scaffold for production.
+The [database runbook](docs/database/local.md) gives exact commands, ownership checks, migration safety and manual Scalar verification. The owner reports successful host PostgreSQL/API verification. Earlier sandbox Docker restrictions are historical execution limits; see the report for evidence provenance and pending gates.
 
-Compose binds PostgreSQL only to `127.0.0.1:55432`; data persists in a named volume. `make db-stop` stops it without removing data. Migration credentials are local-only; production must split owner/migrator/application roles. Password changes do not update an already initialized PostgreSQL volume: use an explicit SQL rotation procedure, never delete a volume containing data to fix credentials.
+Dedicated official PostgreSQL 17.11: container `tgp-sys-postgres-dev`, DB `tgp_facility_dev`, non-superuser runtime `tgp_app_dev`, separate migrator and bootstrap roles, named volume and private project network. Host binding is loopback only (candidate port 55432, selected/validated on host). The unrelated `supabase_db_thebookseller` and port 54322 are never used.
+
+`make env` creates ignored mode-0600 `.env` with three strong random passwords and encoded URLs, without displaying values. It preserves existing credentials/unrelated settings and refuses inconsistent or tracked files. `.env.example` contains placeholders only; do not copy it over real credentials. No credentials are committed. `go.sum` is now present after host dependency resolution; `make setup` runs tidy/download/verify and installs locked npm dependencies. Do not fabricate checksums or treat missing dependencies as passed checks.
 
 ## Implemented HTTP surface
 
-| GET or HEAD | Behavior |
+| GET/HEAD | Meaning |
 |---|---|
-| `/health/live` | 200 when HTTP is serving; independent of database availability |
-| `/health/ready` | Real pgx pool Ping; 200 or redacted 503 within `DB_TIMEOUT`; does not check future domain migrations |
-| `/openapi.yaml` | Embedded contract, local docs mode only |
-| `/docs` | Scalar shell, local docs mode only; pinned external renderer requires network |
+| `/health/live` | HTTP process live, independent of DB |
+| `/health/ready` | Actual bounded pgx Ping, 200 or redacted 503; no domain schema-version assertion yet |
+| `/docs` | Local-only Scalar reference shell, pinned CDN renderer |
+| `/openapi.yaml` | Local-only embedded authoritative OpenAPI 3.1.1 |
 
-Unknown routes return JSON 404; known routes reject writes with JSON 405. All JSON responses carry a generated `meta.request_id` matching `X-Request-ID`. No CORS is enabled. Business APIs will live under `/api/v1` in later phases. The server stays live during DB outages and closes gracefully on SIGINT/SIGTERM. It never runs migrations automatically.
-
-```sh
-curl -i http://127.0.0.1:8080/health/live
-curl -i http://127.0.0.1:8080/health/ready
-make docs
-make api-smoke
-```
-
-Open `/docs` and use Scalar's request control on liveness/readiness. This is an unverified manual procedure until dependencies and network are available. Bruno request files are in `bruno/`; open the folder in Bruno. They are manual conveniences, not another contract. Auth testing is deferred to Phase 2.
+Unknown routes return JSON 404; unsupported methods return 405. JSON responses include a generated `meta.request_id` matching `X-Request-ID`. Business routes, scoped authorization and user authentication are deferred. No CORS is enabled. API never auto-migrates; SIGTERM/SIGINT drain requests before closing the pool.
 
 ## Configuration
 
-The process reads environment variables only; `make run` explicitly sources trusted `.env` shell syntax. Do not source an untrusted file. Never print `.env` or pass credentials into logs.
+The API consumes environment variables. `make run` loads `.env` without executing shell code. Core names: required `DATABASE_URL`; `APP_ENV` (local/test/production, default local); `HTTP_ADDR` (default 127.0.0.1:8080, local requires loopback); `DOCS_ENABLED` (false by default, true only locally); `LOG_LEVEL` (info); `DB_TIMEOUT` (2s); `SHUTDOWN_TIMEOUT` (10s). Durations must be positive and at most 1m. Production URL requires `sslmode=verify-full`, but no production infrastructure/deployment is delivered.
 
-| Variable | Default / rule |
-|---|---|
-| `DATABASE_URL` | Required PostgreSQL URL including user, host, database; local SSL disabled only for local DB |
-| `APP_ENV` | `local`, `test`, or `production`; defaults local |
-| `HTTP_ADDR` | `127.0.0.1:8080`; local environment requires loopback |
-| `DOCS_ENABLED` | false; true allowed only in local environment |
-| `LOG_LEVEL` | info; debug/info/warn/error accepted by slog |
-| `DB_TIMEOUT` | 2s; positive, maximum 1m |
-| `SHUTDOWN_TIMEOUT` | 10s; positive, maximum 1m |
-| `POSTGRES_PASSWORD` | Required by local Compose; not read by the API |
-| `TEST_DATABASE_URL` | Explicit local disposable database for integration tests |
+Compose/bootstrap connection fields and all migration/test URL names are listed in [.env.example](.env.example) and the runbook. Application, migration and bootstrap secrets differ. Runtime has CONNECT/schema USAGE only; future table grants require actual schema review.
 
-Production mode requires `sslmode=verify-full`, but production infrastructure, TLS termination, least privilege and operational hardening are not delivered or approved.
-
-## Commands
+## Development commands
 
 ```sh
+make setup
 make fmt
-make lint                  # gofmt check + go vet (stdlib baseline static lint)
-make test                  # all Go tests with race detector
-make openapi-lint          # Redocly OpenAPI 3.1 validation
-make migrate-up
-export TEST_DATABASE_URL='postgres://facility:YOUR_LOCAL_PASSWORD@127.0.0.1:55432/facility?sslmode=disable'
+make lint                  # gofmt check + go vet
+make test                  # Go race suite + Python environment safety tests
+make openapi-lint
+make db-verify             # host-path password authentication, identity/version/privileges
+make migrate-up            # development DB forward only
+make migrate-test-up
 make test-integration
-make migrate-down          # one migration, ONLY on disposable Phase 0 DB
-make migrate-up
-make api-smoke             # running API + real PostgreSQL required
+make migrate-test-down     # disposable test DB ONLY; never development rollback
+make migrate-test-up
+make run
+make api-smoke
+make docs
+make verify-phase0         # all host acceptance checks; fails immediately on blockers
+make db-stop               # only dedicated service, no data/volume deletion
 ```
 
-Migration round-trip details: [database runbook](docs/database/local.md). Architecture and directory boundaries: [architecture](docs/architecture/overview.md). Decisions and alternatives: [ADRs](docs/decisions/README.md). Requirements: [traceability](docs/requirements/traceability.md). No Git metadata is initialized in this environment; repository hosting/branch/remote and license are owner decisions.
-# TGP-SYS
+After host checks, open `/docs` and test probes manually. Scalar/browser Try-it and Bruno collection execution are not claimed from handler tests or HTML availability. Bruno probe files in `bruno/` contain no secrets. Local evidence and blockers are in the phase report; no Phase 1 work may begin without explicit approval.
+
+[Architecture](docs/architecture/overview.md), [ADRs](docs/decisions/README.md), [traceability](docs/requirements/traceability.md) and [repository instructions](AGENTS.md) describe module boundaries and future gates. Go module path `gateplaza.local/facility` remains provisional; production hosting, backups, private file storage and repository license are undecided.
+
+Final acceptance guides: [Bruno CLI verification](bruno/README.md), [manual Scalar browser checklist](docs/phases/phase-00-browser-checklist.md), and [architecture/security review](docs/architecture/phase-00-acceptance-review.md). No Phase 1 authorization is implied.

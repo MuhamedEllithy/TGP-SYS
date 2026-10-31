@@ -1,0 +1,283 @@
+openapi: 3.1.1
+info:
+  title: "Facility Management Platform \u2014 Phase 0"
+  version: 0.0.0
+  description: System foundation only. No business APIs or authentication are implemented.
+    Future business APIs use /api/v1; all will require scoped authorization.
+  contact:
+    name: Backend maintainers
+servers:
+- url: http://127.0.0.1:8080
+  description: Local development only
+security: []
+tags:
+- name: System
+  description: Unauthenticated, read-only probes and local-only documentation.
+paths:
+  /health/live:
+    get:
+      operationId: getLiveness
+      tags:
+      - System
+      summary: getLiveness
+      description: Process is serving HTTP; does not depend on PostgreSQL. No business
+        permission or approval applies. See internal/platform/httpx/server_test.go.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: &id001
+            X-Request-ID:
+              description: Server-generated 128-bit correlation ID. Caller-provided
+                IDs are ignored.
+              schema:
+                type: string
+                pattern: ^[a-f0-9]{32}$
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+              example:
+                data:
+                  status: live
+                meta:
+                  request_id: 0123456789abcdef0123456789abcdef
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    head:
+      operationId: getLivenessHeaders
+      tags:
+      - System
+      summary: Headers for /health/live
+      description: Same status and headers as GET, without a response body.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: *id001
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+  /health/ready:
+    get:
+      operationId: getReadiness
+      tags:
+      - System
+      summary: getReadiness
+      description: Bounded PostgreSQL pool Ping; outage returns 503 without driver
+        details. Does not assert future business schema readiness. No business permission
+        or approval applies. See internal/platform/httpx/server_test.go.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+              example:
+                data:
+                  status: ready
+                meta:
+                  request_id: 0123456789abcdef0123456789abcdef
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: PostgreSQL unavailable or timed out.
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                error:
+                  code: not_ready
+                  message: Service is not ready
+                  details: []
+                meta:
+                  request_id: 0123456789abcdef0123456789abcdef
+    head:
+      operationId: getReadinessHeaders
+      tags:
+      - System
+      summary: Headers for /health/ready
+      description: Same status and headers as GET, without a response body.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: *id001
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+        '503':
+          description: PostgreSQL unavailable or timed out.
+          headers: *id001
+  /docs:
+    get:
+      operationId: getDocs
+      tags:
+      - System
+      summary: getDocs
+      description: Local-only Scalar reference; disabled outside local development.
+        Requires CDN access for the pinned renderer. No business permission or approval
+        applies. See internal/platform/httpx/server_test.go.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: *id001
+          content:
+            text/html:
+              schema:
+                type: string
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Documentation disabled.
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    head:
+      operationId: getDocsHeaders
+      tags:
+      - System
+      summary: Headers for /docs
+      description: Same status and headers as GET, without a response body.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: *id001
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+        '404':
+          description: Documentation disabled.
+          headers: *id001
+  /openapi.yaml:
+    get:
+      operationId: getOpenAPI
+      tags:
+      - System
+      summary: getOpenAPI
+      description: Local-only embedded authoritative contract. No business permission
+        or approval applies. See internal/platform/httpx/server_test.go.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: *id001
+          content:
+            application/yaml:
+              schema:
+                type: string
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Documentation disabled.
+          headers: *id001
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    head:
+      operationId: getOpenAPIHeaders
+      tags:
+      - System
+      summary: Headers for /openapi.yaml
+      description: Same status and headers as GET, without a response body.
+      security: []
+      responses:
+        '200':
+          description: Successful system response
+          headers: *id001
+        '405':
+          description: 'Unsupported method; Allow: GET, HEAD.'
+          headers: *id001
+        '404':
+          description: Documentation disabled.
+          headers: *id001
+components:
+  schemas:
+    Meta:
+      type: object
+      additionalProperties: false
+      required:
+      - request_id
+      properties:
+        request_id:
+          type: string
+          pattern: ^[a-f0-9]{32}$
+    Health:
+      type: object
+      additionalProperties: false
+      required:
+      - data
+      - meta
+      properties:
+        data:
+          type: object
+          additionalProperties: false
+          required:
+          - status
+          properties:
+            status:
+              type: string
+              enum:
+              - live
+              - ready
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Error:
+      type: object
+      additionalProperties: false
+      required:
+      - error
+      - meta
+      properties:
+        error:
+          type: object
+          additionalProperties: false
+          required:
+          - code
+          - message
+          - details
+          properties:
+            code:
+              type: string
+              enum:
+              - not_ready
+              - not_found
+              - method_not_allowed
+            message:
+              type: string
+            details:
+              type: array
+              items:
+                type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
