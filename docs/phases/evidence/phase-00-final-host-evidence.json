@@ -1,0 +1,192 @@
+{
+  "phase": "0",
+  "verified_source_revision": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec",
+  "revision_provenance": "Owner supplied verified revision context; Bruno JSON does not embed a Git SHA",
+  "bruno": {
+    "result": "PASS",
+    "execution_source": "Owner-provided WSL execution; not executed by Codex during closure",
+    "json_inspection": "Directly inspected by Codex during closure",
+    "source_file": "/tmp/tgp-bruno-results.xIMTEf/results.json",
+    "source_sha256": "d6ca62b7b9992405bb8322d35af985433122514080b09c27e1eb0b0dd76350de",
+    "cli_version_owner_reported": "4.0.0",
+    "duration_ms_owner_reported": 459,
+    "exit_code_owner_reported": 0,
+    "summary_directly_verified": {
+      "totalRequests": 4,
+      "passedRequests": 4,
+      "failedRequests": 0,
+      "errorRequests": 0,
+      "skippedRequests": 0,
+      "skippedByBail": 0,
+      "totalAssertions": 10,
+      "passedAssertions": 10,
+      "failedAssertions": 0,
+      "totalTests": 7,
+      "passedTests": 7,
+      "failedTests": 0,
+      "totalPreRequestTests": 0,
+      "passedPreRequestTests": 0,
+      "failedPreRequestTests": 0,
+      "totalPostResponseTests": 0,
+      "passedPostResponseTests": 0,
+      "failedPostResponseTests": 0
+    },
+    "requests_directly_verified": [
+      {
+        "method": "GET",
+        "path": "/health/live",
+        "status_code": 200,
+        "result": "PASS",
+        "request_id_header_matches_body": true,
+        "assertions": [
+          {
+            "expression": "res.status",
+            "status": "pass"
+          },
+          {
+            "expression": "res.body.data.status",
+            "status": "pass"
+          }
+        ],
+        "tests": [
+          {
+            "name": "JSON response correlation matches the server header",
+            "status": "pass"
+          }
+        ],
+        "raw_run_duration": 0.184718587
+      },
+      {
+        "method": "GET",
+        "path": "/health/ready",
+        "status_code": 200,
+        "result": "PASS",
+        "request_id_header_matches_body": true,
+        "assertions": [
+          {
+            "expression": "res.status",
+            "status": "pass"
+          },
+          {
+            "expression": "res.body.data.status",
+            "status": "pass"
+          }
+        ],
+        "tests": [
+          {
+            "name": "JSON response correlation matches the server header",
+            "status": "pass"
+          }
+        ],
+        "raw_run_duration": 0.093738077
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/assets",
+        "status_code": 404,
+        "result": "PASS",
+        "request_id_header_matches_body": true,
+        "assertions": [
+          {
+            "expression": "res.status",
+            "status": "pass"
+          },
+          {
+            "expression": "res.body.error.code",
+            "status": "pass"
+          },
+          {
+            "expression": "res.body.error.message",
+            "status": "pass"
+          }
+        ],
+        "tests": [
+          {
+            "name": "JSON response correlation matches the server header",
+            "status": "pass"
+          },
+          {
+            "name": "Error details are empty and no successful data is returned",
+            "status": "pass"
+          }
+        ],
+        "raw_run_duration": 0.090337968
+      },
+      {
+        "method": "POST",
+        "path": "/health/live",
+        "status_code": 405,
+        "result": "PASS",
+        "request_id_header_matches_body": true,
+        "assertions": [
+          {
+            "expression": "res.status",
+            "status": "pass"
+          },
+          {
+            "expression": "res.body.error.code",
+            "status": "pass"
+          },
+          {
+            "expression": "res.body.error.message",
+            "status": "pass"
+          }
+        ],
+        "tests": [
+          {
+            "name": "JSON response correlation matches the server header",
+            "status": "pass"
+          },
+          {
+            "name": "Error details are empty and no successful data is returned",
+            "status": "pass"
+          },
+          {
+            "name": "Allow advertises only GET and HEAD",
+            "status": "pass"
+          }
+        ],
+        "raw_run_duration": 0.089918387
+      }
+    ]
+  },
+  "scalar": {
+    "result": "PASS",
+    "source": "Owner-confirmed manual browser verification",
+    "url": "http://127.0.0.1:8080/docs",
+    "confirmed": [
+      "Scalar documentation rendered",
+      "OpenAPI endpoints visible",
+      "Interactive Try-it worked",
+      "A real HTTP request was sent",
+      "GET /health/live returned HTTP 200",
+      "Expected live response displayed"
+    ],
+    "automated_browser_test_performed": false,
+    "screenshot_supplied": false,
+    "browser_version_or_timestamp_supplied": false,
+    "browser_readiness_or_all_error_models_individually_confirmed": false
+  },
+  "postgresql": {
+    "result": "PASS",
+    "source": "Owner-provided WSL evidence",
+    "version": "17.11",
+    "confirmed": [
+      "Dedicated Docker container healthy",
+      "Runtime and migration credentials separated",
+      "Authenticated TCP connection passed",
+      "Incorrect password rejected",
+      "Runtime login non-superuser",
+      "Migration up/down/reapply on disposable test DB passed",
+      "Integration tests passed"
+    ]
+  },
+  "owner_approval": {
+    "scope": "Final Phase 0 acceptance/closure and one reviewed local documentation commit only",
+    "statement": "Owner explicitly supplied remaining successful host/browser evidence and authorized formal Phase 0 closure",
+    "next_phase": "Phase 1A — Database Architecture and ERD Design",
+    "next_phase_status": "NOT STARTED — AWAITING SEPARATE OWNER AUTHORIZATION",
+    "production_deployment_authorized": false,
+    "remote_push_authorized": false
+  }
+}

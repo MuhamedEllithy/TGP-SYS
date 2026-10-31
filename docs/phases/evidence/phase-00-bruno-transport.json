@@ -19,5 +19,28 @@
   "requests_with_responses": 0,
   "tests_executed": 0,
   "assertions_executed": 0,
-  "raw_report": "/tmp/tgp-phase0-bruno-results.json"
+  "raw_report": "/tmp/tgp-phase0-bruno-results.json",
+  "actual_head_attempt": {
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec",
+    "version": "4.0.0",
+    "command": [
+      "bru",
+      "run",
+      "--env",
+      "local",
+      "--sandbox",
+      "safe",
+      "--reporter-json",
+      "/tmp/tgp-phase0-actual-head-bruno.json"
+    ],
+    "exit_code": 1,
+    "result": "BLOCKED",
+    "requests_attempted": 4,
+    "responses_received": 0,
+    "tests_executed": 0,
+    "assertions_executed": 0,
+    "assertions_passed": 0,
+    "assertions_failed": 0,
+    "transport_error": "connect EPERM 127.0.0.1:8080"
+  }
 }

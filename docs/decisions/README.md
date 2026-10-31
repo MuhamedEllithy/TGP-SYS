@@ -7,7 +7,7 @@ Technical adoption does not change approved functional scope. Recommendations re
 - [0003: Database access and migration tooling](0003-db-migrations.md) — Adopted; dependency/migration host checks owner-reported PASS.
 - [0004: Stable identity and administrative code scope](0004-identity-codes.md) — Recommendation; confirm before Phase 1 DDL.
 - [0005: Authentication transport and scoped permissions](0005-authentication-authorization.md) — Recommendation; Phase 2 implementation gate.
-- [0006: Contract-first OpenAPI and interactive reference](0006-openapi-docs.md) — Adopted; lint and host HTTP availability verified; Browser Try-it pending.
+- [0006: Contract-first OpenAPI and interactive reference](0006-openapi-docs.md) — Adopted; lint/host HTTP/Bruno PASS; Scalar Try-it PASS — Owner-confirmed manual verification.
 - [0007: Private object storage and scanning](0007-private-storage.md) — Recommendation; no provider selected.
 - [0008: Testing and CI foundation](0008-ci-testing.md) — Adopted foundation; workflow unexecuted.
 - [0009: Versioned statuses and safe movement primitives](0009-config-status-movements.md) — Architecture recommendation; no implementation.
@@ -25,4 +25,4 @@ Technical adoption does not change approved functional scope. Recommendations re
 
 Sources reviewed during Phase 0; registry downloads, transitive licenses and security advisories require verification after network access is restored. Tool versions are explicit candidates until install and compatibility checks succeed; no claim that all are the latest release.
 
-Current verification status/provenance is recorded in the [final Phase 0 report](../phases/phase-00-report.md). Host automation results do not establish manual Browser Try-it, clean-clone bootstrap or hosted CI.
+Current verification status/provenance is recorded in the [final Phase 0 report](../phases/phase-00-report.md). Distinct recorded clean-checkout checks and owner manual Try-it confirmation now support Phase 0 closure; automation alone is not browser evidence. Hosted CI/full release coverage remain deferred.

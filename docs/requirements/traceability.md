@@ -5,7 +5,7 @@ The master plan remains authoritative. IDs below index its sections rather than 
 | ID | Master plan | Requirement | Endpoint/service/artifact | DB | Verification | Phase | Status |
 |---|---|---|---|---|---|---|---|
 | P0-001 | §10 Phase 0 | Go/config/logging/modular skeleton | cmd/api; platform/config, db, httpx | platform_probe (infrastructure only) | config/httpx unit tests; go vet; build | 0 | Foundation built and host-verified; see final report |
-| P0-002 | §10 Phase 0; §7 | Local DB, migrations, reproducible setup | Makefile; deployments/local | platform_probe; schema_migrations | integration; migration up/down; bootstrap | 0 | Host DB/migration PASS; committed clean-checkout gate FAIL |
+| P0-002 | §10 Phase 0; §7 | Local DB, migrations, reproducible setup | Makefile; deployments/local | platform_probe; schema_migrations | integration; migration up/down; bootstrap | 0 | Phase 0 PASS: actual-HEAD clean bootstrap plus owner DB/migration evidence |
 | P0-003 | §10; §13 | ADRs and gated documentation | docs/decisions; README; AGENTS | — | review of baseline and ADRs | 0 | Complete as documents; recommendations remain open |
 | CORE-001 | §2.1 | One company, many projects, shared identities/departments/teams | Future organization/projects application services | Phase 1 ERD: organization/project tables | T01 | 1–3 | Deferred |
 | CORE-002 | §2.1 | Timed memberships, primary team, independent scoped grants | Future organization/authz services | Memberships, role bindings (proposed) | T01; revocation and effective-date tests | 2 | Deferred |
@@ -30,11 +30,11 @@ The master plan remains authoritative. IDs below index its sections rather than 
 | RPT-001 | §2.10 | Scoped reports/exports; unit counts once; privacy/formula injection protection | Future reporting/export service | Read models/export jobs (proposed) | T19,T21 | 10 | Deferred |
 | RPT-002 | §2.5,2.10 | QR resolves stable locator; no authorization grant; safe labels/reprints | Future QR service | QR identity/print jobs (proposed) | T08; QR access/label tests | 5,10 | Deferred |
 | API-001 | §6,7 | Authoritative OpenAPI 3.1 and implemented routes only | /health/live; /health/ready; local /docs; /openapi.yaml | No domain tables | httpx tests; Redocly lint; network smoke | 0,11 | Phase 0 skeleton/lint and host HTTP PASS; full business contract deferred |
-| API-002 | §6,7 | Interactive real requests, examples/errors; Bruno/Hurl convenience | Scalar shell; Bruno probes; Python smoke in place of optional Hurl | — | T22; manual Try-it | 0,2,11 | Host docs HTTP PASS; Bruno live BLOCKED; Browser Try-it PENDING MANUAL VERIFICATION; auth deferred |
+| API-002 | §6,7 | Interactive real requests, examples/errors; Bruno/Hurl convenience | Scalar shell; Bruno probes; Python smoke in place of optional Hurl | — | T22; manual Try-it | 0,2,11 | Phase 0 PASS: owner host Bruno 4/4, tests 7/7, assertions 10/10; owner manual Scalar PASS; future auth/business flows deferred |
 | SEC-001 | §3.3,8.2 | Revocable sessions, KDF, CSRF/CORS, TLS, rate/size limits and scoped negatives | Future authn/authz; current HTTP timeout/config redaction | Session/audit schema later | config/httpx negative tests; later T01,T19,T20 | 0,2,5,11 | Partial: system surface controls only |
 | SEC-002 | §8.1,8.2 | Immutable audit/domain histories, redaction, private storage and restore | Future audit/files; current structured logs | Audit/domain events (proposed) | Mutation/audit and restore tests later | 1–11 | Deferred except redacted system logs |
 | SEC-003 | §8.3 | Bounded queries/payloads, metrics and benchmark assumptions | Future module handlers and observability | Indexes justified by query plans later | Volume/latency tests after real sample data | 10 | Deferred: no SLA invented |
-| SEC-004 | §8.4,9 | Pinned CI, locks, real DB tests, no deployments or secrets | Proposed .github/workflows/ci.yml | Ephemeral PostgreSQL only | T23; secret review; clean bootstrap | 0,11 | Locks present in working tree; committed checkout FAIL; hosted CI BLOCKED |
+| SEC-004 | §8.4,9 | Pinned CI, locks, real DB tests, no deployments or secrets | Proposed .github/workflows/ci.yml | Ephemeral PostgreSQL only | T23; secret review; clean bootstrap | 0,11 | Phase 0 foundation PASS: locks/actual-HEAD bootstrap verified; full hosted CI/T23 deferred |
 
 ## Change control and open items
 
@@ -51,3 +51,13 @@ An actual detached checkout of `0de108d4f6279966c55f52e4a54b47b043f41fbb` contai
 ## Git recovery verification follow-up
 
 Original repository commit is BLOCKED by read-only .git. A complete isolated candidate commit and clean-checkout offline bootstrap/tests/lint are PASS, with exact SHA/inventory in the current report. Live candidate DB/API and Bruno remain BLOCKED by sandbox sockets; Scalar remains PENDING MANUAL VERIFICATION. This is evidence for Phase 0 only; no future requirement implementation is implied.
+
+## Actual HEAD verification
+
+`46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec` now commits all 68 manifest files: source recovery and actual detached offline bootstrap/build/test/race/vet/OpenAPI checks PASS. Historical source-completeness failures are resolved. Live HTTP/Bruno from sandbox remains BLOCKED; browser Try-it remains PENDING MANUAL VERIFICATION. Exact evidence and reconciliation are in the current report. No future business module or Phase 1 implementation is implied.
+
+## Final Phase 0 acceptance
+
+PHASE 0 — ACCEPTED AND CLOSED at implementation `46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec`, on recorded actual-commit checks plus owner-provided WSL and manual evidence. Bruno host JSON was directly inspected: 4/4 requests, 7/7 tests, 10/10 assertions; Scalar real GET-live Try-it explicitly owner-confirmed. This later evidence supersedes historical blocked/pending statuses without erasing them. P0-001..P0-003 and Phase 0 portions of API-001/API-002/SEC-001/SEC-004 are accepted; all future requirements above remain unimplemented/deferred. CI scaffold only is accepted, not complete release T23. See [acceptance](../phases/phase-00-acceptance.md) and [final host evidence](../phases/evidence/phase-00-final-host-evidence.json).
+
+Phase 1A — Database Architecture and ERD Design: NOT STARTED — AWAITING SEPARATE OWNER AUTHORIZATION.

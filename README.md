@@ -1,6 +1,6 @@
 # Facility Management Backend
 
-Phase 0 Go modular-monolith foundation for TGP-Sys, initially The Gate Plaza. Backend only; no business modules or authentication are implemented. The [master plan](ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md) is authoritative. [Phase 0 report](docs/phases/phase-00-report.md) records actual passes and blockers; Host automated verification is owner-reported PASS. Final acceptance is BLOCKED by the sandbox read-only original Git metadata and live sockets. An isolated complete candidate commit passed clean-checkout offline bootstrap/tests; Scalar browser interaction is PENDING MANUAL VERIFICATION. See the current report for exact SHA/provenance and the [Git recovery guide](docs/phases/phase-00-git-recovery.md).
+Phase 0 Go modular-monolith foundation for TGP-Sys, initially The Gate Plaza. Backend only; no business modules or authentication are implemented. The [master plan](ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md) is authoritative. [Phase 0 report](docs/phases/phase-00-report.md) records actual passes and blockers; **PHASE 0 — ACCEPTED AND CLOSED** for implementation `46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec`. Actual-commit clean-checkout verification passed; owner WSL evidence confirms database/live Bruno success, and the owner confirmed manual Scalar Try-it. See the [acceptance record](docs/phases/phase-00-acceptance.md) for provenance and non-blocking debt. Phase 1A is not started and requires separate owner authorization.
 
 ## Local setup (owner's WSL terminal)
 
@@ -59,7 +59,7 @@ make verify-phase0         # all host acceptance checks; fails immediately on bl
 make db-stop               # only dedicated service, no data/volume deletion
 ```
 
-After host checks, open `/docs` and test probes manually. Scalar/browser Try-it and Bruno collection execution are not claimed from handler tests or HTML availability. Bruno probe files in `bruno/` contain no secrets. Local evidence and blockers are in the phase report; no Phase 1 work may begin without explicit approval.
+The owner completed real Bruno execution (4/4 requests, 7/7 tests, 10/10 assertions) and manually confirmed Scalar Try-it GET `/health/live`. These are owner-executed results, not claims derived from handler tests or HTML availability. Bruno probe files in `bruno/` contain no secrets. Local evidence and blockers are in the phase report; no Phase 1 work may begin without explicit approval.
 
 [Architecture](docs/architecture/overview.md), [ADRs](docs/decisions/README.md), [traceability](docs/requirements/traceability.md) and [repository instructions](AGENTS.md) describe module boundaries and future gates. Go module path `gateplaza.local/facility` remains provisional; production hosting, backups, private file storage and repository license are undecided.
 

@@ -1,5 +1,11 @@
 # Phase 0 local Git recovery
 
+## Current recovery status
+
+**PASS:** host commit `46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec` now contains all 68 reviewed manifest files; the working tree was clean when verified. The 65-file candidate differs only by three added evidence JSON files and seven documentation edits. No additional foundation commit, reset, force update or candidate import is needed. The actual HEAD clean-checkout/offline results and later successful host/manual closure evidence is recorded in the [current report](phase-00-report.md).
+
+The procedure below is retained as historical recovery guidance. Do not blindly rerun it or treat its earlier sandbox read-only error as a current source-completeness failure. Review any later documentation-only edits before an optional follow-up local commit; no push is authorized.
+
 The owner authorized a local commit of reviewed Phase 0 files only. The agent's explicit staging attempt failed creating `.git/index.lock` because the sandbox mounts original Git metadata read-only. No permission changes, alternate index for that repository, reset, clean, checkout or push were used to circumvent it.
 
 An isolated candidate repository/commit can be created in writable temporary storage and tested independently. It is not an update of the original branch. Current report records the exact candidate SHA, evidence and any retained recovery bundle.
@@ -70,3 +76,7 @@ After recovery, clone the new exact revision to an isolated directory and rerun 
 The default unfiltered `git diff --check` flags existing two-space Markdown hard breaks, including the unchanged master plan. These are intentional Markdown syntax, not ignored code/test failures. The procedure checks non-Markdown files with Git and permits only exactly two spaces at Markdown line endings; tabs or other trailing whitespace fail.
 
 The retained candidate bundle advertises `phase0-recovery-candidate`, not a default HEAD. For inspection in a new temporary directory, use `git clone --branch phase0-recovery-candidate <bundle-path> <new-empty-directory>`. Do not clone it over the working repository. The current report records its exact SHA and successful bundle integrity/file-inventory verification.
+
+## Phase 0 final sign-off
+
+PHASE 0 — ACCEPTED AND CLOSED for verified implementation 46555ea. The foundation recovery procedure above is historical; only the final reviewed documentation commit is now authorized. Use `docs/phases/phase-00-closure-files.txt` for its exact documentation-only paths, not the entire application manifest. Local Git administration outcome and safe WSL fallback are in the current report. No reset, amend, push or next-phase work is authorized.

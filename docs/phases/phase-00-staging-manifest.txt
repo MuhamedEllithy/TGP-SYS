@@ -39,10 +39,13 @@ docs/decisions/0011-dedicated-postgresql17-local.md
 docs/decisions/README.md
 docs/phases/evidence/phase-00-bruno-transport.json
 docs/phases/evidence/phase-00-clean-checkout.json
+docs/phases/evidence/phase-00-final-host-evidence.json
 docs/phases/evidence/phase-00-recovery-bootstrap.json
 docs/phases/evidence/phase-00-recovery-git.json
 docs/phases/evidence/phase-00-recovery-inventory.json
+docs/phases/phase-00-acceptance.md
 docs/phases/phase-00-browser-checklist.md
+docs/phases/phase-00-closure-files.txt
 docs/phases/phase-00-git-recovery.md
 docs/phases/phase-00-report.md
 docs/phases/phase-00-staging-manifest.txt

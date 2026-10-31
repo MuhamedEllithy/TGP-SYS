@@ -1,6 +1,6 @@
 # Phase 0 architecture and security acceptance review
 
-Design consistency result: **PASS** for the reviewed working-tree foundation, with the limits below. Delivery acceptance: **BLOCKED** by an incomplete committed source revision. Source/design review is not implementation of future business controls or a security certification.
+Design consistency result: **PASS** for the reviewed working-tree foundation, with the limits below. Source recovery is now **PASS** at actual host commit 46555ea; Phase 0 is now **ACCEPTED AND CLOSED** on later owner host/manual evidence; earlier blocked statements below are historical. The original C1 finding below is historical. Source/design review is not implementation of future business controls or a security certification.
 
 Reviewed all eleven ADRs against master-plan §§0–4, 6–10 and 13, current system transport/configuration, Compose/bootstrap/migration guards, secret handling, API contract and collections. ADR 0002 is explicitly superseded by 0011; it does not require running PostgreSQL 18. No new architectural mechanism is proposed.
 
@@ -19,7 +19,7 @@ This is a delivery/reproducibility defect, not evidence that the host-tested app
 | 0003 — pgx/migrations | PASS | Versioned SQL and explicit migration commands; API never auto-migrates. Bootstrap, migration and runtime privileges are separated by 0011. SQL/query code for future domains is not implemented. |
 | 0004 — IDs/codes | PASS | ID, code, serial and QR separation, historical claim retention, home/current project distinction and normalization approval gate preserve master-plan invariants. Recommendations are not finalized domain DDL. |
 | 0005 — authentication/authorization | PASS | Revocable-session recommendation, CSRF, default deny, scoped resources and explicit precedence gate are consistent. Business routes are absent; no auth bypass or static admin token exists. This does not prove future project isolation. |
-| 0006 — OpenAPI/docs | PASS | Contract-first 3.1.1, only implemented read operations, embedded source and local-only docs. Lint/examples/route checks are verified; actual renderer/schema UI and Try-it are PENDING MANUAL VERIFICATION. |
+| 0006 — OpenAPI/docs | PASS | Contract-first 3.1.1, only implemented read operations, embedded source and local-only docs. Lint/examples/route checks are verified; owner-confirmed renderer/GET-live Try-it now supports Phase 0 PASS; no exhaustive browser-model coverage is claimed. |
 | 0007 — private storage/scanning | PASS | Private provider boundary, quarantine and authorization are recommendations for the attachment phase. No public file endpoint or prematurely chosen provider is introduced. |
 | 0008 — CI/tests | PASS | Commands/workflow/locks exist in working tree; no deploy job. C1 prevents a clean checkout/CI of those files. Hosted CI execution and stronger scan tooling remain unproven. |
 | 0009 — statuses/movement primitives | PASS | Referenced immutable configuration revisions, safe implemented primitives and transactional execution preserve controlled dynamic configuration. No arbitrary workflow scripting or mutable historical references. |
@@ -48,3 +48,11 @@ No additional confirmed critical application vulnerability or approved-scope con
 ## Authorized Git recovery follow-up
 
 The original source-completeness finding remains true of original HEAD because sandbox .git writes are blocked. A complete local candidate commit was safely created in temporary storage and its actual clean checkout passed offline bootstrap/build/tests/lint. This resolves candidate-source completeness, not original branch recovery or live/manual verification. See the current phase report for exact candidate SHA, inventory and host recovery procedure. No additional ADR or Phase 1 design was introduced.
+
+## Actual original-repository recovery resolved
+
+Host commit `46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec` contains exactly 68 manifest files. All implementation/config/locks/collections are byte-identical to the reviewed candidate. Its actual detached checkout passed offline bootstrap/build/unit/race/vet/lint. Original C1 source completeness is resolved; live exact-commit checks and browser Try-it remain separately gated. No Phase 1 code was found despite the commit-message label.
+
+## Final owner sign-off
+
+All mandatory Phase 0 evidence is reconciled: actual Git recovery/clean checkout and code checks, owner PostgreSQL/migration/lifecycle results, inspected real Bruno host JSON, and explicit manual Scalar confirmation. PHASE 0 — ACCEPTED AND CLOSED. Earlier C1/transport/manual statuses are historical; no architecture or future business feature was changed. Phase 1A is not started and requires separate authorization.

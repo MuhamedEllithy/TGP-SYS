@@ -32,6 +32,8 @@ Record actual exit status and request/assertion counts. All four requests and th
 
 ## Actual verification status
 
-PASS: CLI 4.0.0 installed in a temporary tools directory, version/help verified, collection/environment parsed and all four expected request URLs attempted. BLOCKED: live execution from this sandbox returned `connect EPERM` for all four; exit 1, zero tests/assertions executed. This is not a passed collection run or evidence of API response failure. No host Bruno result was supplied. See the Phase 0 report for recorded commands and artifacts.
+**PASS — Owner-provided WSL execution.** Bruno CLI 4.0.0, 4/4 requests, 7/7 tests, 10/10 assertions, 459 ms, exit 0. Codex directly inspected `/tmp/tgp-bruno-results.xIMTEf/results.json` and verified all four status/body/correlation outcomes and reported counts. Source SHA-256 and sanitized metadata are in [final host evidence](../docs/phases/evidence/phase-00-final-host-evidence.json). Version/duration/exit/revision context are owner-provided, not embedded CLI process data invented by Codex.
+
+Earlier sandbox CLI attempts returned connect EPERM with zero executed assertions; those attempts remain historical, not successful sandbox runs. Later host evidence closes the live collection gate. Codex did not execute the successful host CLI itself. Phase 0 is accepted; no future business/auth flow is implied.
 
 Primary references: [Bruno CLI options](https://docs.usebruno.com/bru-cli/run/options), [response scripting API](https://docs.usebruno.com/testing/script/javascript-reference).

@@ -165,5 +165,215 @@
     "exit_code": 0,
     "stdout": "",
     "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "clone",
+      "--no-local",
+      "--no-hardlinks",
+      "--no-checkout",
+      "/home/muhamed/Projects/TGP-Sys/backend",
+      "/tmp/tgp-phase0-actual-head-f2171vtg/checkout"
+    ],
+    "cwd": "/home/muhamed/Projects/TGP-Sys/backend",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "Cloning into '/tmp/tgp-phase0-actual-head-f2171vtg/checkout'...\n",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "git",
+      "checkout",
+      "--detach",
+      "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "HEAD is now at 46555ea first commit phase 1\n",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/local_env.py",
+      "--port",
+      "16543"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "Local .env prepared (mode 0600); credentials were not displayed or verified against a server.\nHost port availability is not verified by this command; run make db-preflight on WSL.\n",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "make",
+      "setup"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 2,
+    "stdout": "Local .env prepared (mode 0600); credentials were not displayed or verified against a server.\nHost port availability is not verified by this command; run make db-preflight on WSL.\ngo mod tidy\n",
+    "stderr": "go: downloading github.com/jackc/pgx/v5 v5.11.0\ngo: gateplaza.local/facility/cmd/dbcheck imports\n\tgithub.com/jackc/pgx/v5: github.com/jackc/pgx/v5@v5.11.0: Get \"https://proxy.golang.org/github.com/jackc/pgx/v5/@v/v5.11.0.zip\": dial tcp: lookup proxy.golang.org on 10.255.255.254:53: dial udp 10.255.255.254:53: socket: operation not permitted\ngo: gateplaza.local/facility/cmd/dbcheck imports\n\tgithub.com/jackc/pgx/v5/pgconn: github.com/jackc/pgx/v5@v5.11.0: Get \"https://proxy.golang.org/github.com/jackc/pgx/v5/@v/v5.11.0.zip\": dial tcp: lookup proxy.golang.org on 10.255.255.254:53: dial udp 10.255.255.254:53: socket: operation not permitted\ngo: gateplaza.local/facility/internal/platform/db imports\n\tgithub.com/jackc/pgx/v5/pgxpool: github.com/jackc/pgx/v5@v5.11.0: Get \"https://proxy.golang.org/github.com/jackc/pgx/v5/@v/v5.11.0.zip\": dial tcp: lookup proxy.golang.org on 10.255.255.254:53: dial udp 10.255.255.254:53: socket: operation not permitted\nmake: *** [Makefile:9: setup] Error 1\n",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "make",
+      "setup"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "Local .env prepared (mode 0600); credentials were not displayed or verified against a server.\nHost port availability is not verified by this command; run make db-preflight on WSL.\ngo mod tidy\ngo mod download\ngo mod verify\nall modules verified\ncd tools && npm ci --ignore-scripts\n\nadded 284 packages, and audited 285 packages in 17s\n\n133 packages are looking for funding\n  run `npm fund` for details\n\nfound 0 vulnerabilities\n",
+    "stderr": "go: downloading github.com/jackc/pgx/v5 v5.11.0\ngo: downloading github.com/jackc/puddle/v2 v2.2.2\ngo: downloading github.com/jackc/pgpassfile v1.0.0\ngo: downloading github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761\ngo: downloading golang.org/x/text v0.29.0\ngo: downloading golang.org/x/sync v0.17.0\ngo: downloading github.com/stretchr/testify v1.11.1\ngo: downloading gopkg.in/yaml.v3 v3.0.1\ngo: downloading github.com/davecgh/go-spew v1.1.1\ngo: downloading github.com/pmezard/go-difflib v1.0.0\n",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "go",
+      "mod",
+      "verify"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "all modules verified\n",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "go",
+      "build",
+      "-o",
+      "/tmp/tgp-phase0-actual-head-f2171vtg/api",
+      "./cmd/api"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "go",
+      "test",
+      "-count=1",
+      "./..."
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "?   \tgateplaza.local/facility/api\t[no test files]\n?   \tgateplaza.local/facility/cmd/api\t[no test files]\n?   \tgateplaza.local/facility/cmd/dbcheck\t[no test files]\nok  \tgateplaza.local/facility/internal/platform/config\t0.005s\n?   \tgateplaza.local/facility/internal/platform/db\t[no test files]\nok  \tgateplaza.local/facility/internal/platform/httpx\t0.007s\n",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "-count=1",
+      "./..."
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "?   \tgateplaza.local/facility/api\t[no test files]\n?   \tgateplaza.local/facility/cmd/api\t[no test files]\n?   \tgateplaza.local/facility/cmd/dbcheck\t[no test files]\nok  \tgateplaza.local/facility/internal/platform/config\t1.021s\n?   \tgateplaza.local/facility/internal/platform/db\t[no test files]\nok  \tgateplaza.local/facility/internal/platform/httpx\t1.025s\n",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "make",
+      "lint"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "go vet ./...\n",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "make",
+      "openapi-lint"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "cd tools && npm run lint\n\n> facility-contract-tools@0.0.0 lint\n> redocly lint ../api/openapi.yaml --config ../redocly.yaml\n\n",
+    "stderr": "validating ../api/openapi.yaml...\n../api/openapi.yaml: validated in 51ms\n\nWoohoo! Your API description is valid. \ud83c\udf89\n\n",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "scripts",
+      "-p",
+      "test_*.py"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.007s\n\nOK\n",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "docker",
+      "compose",
+      "--env-file",
+      ".env",
+      "-f",
+      "deployments/local/compose.yaml",
+      "config",
+      "--quiet"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "python3",
+      "scripts/local_env.py",
+      "--run",
+      "/tmp/tgp-phase0-actual-head-f2171vtg/api"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 1,
+    "stdout": "{\"time\":\"2026-10-31T22:43:16.198525729+02:00\",\"level\":\"ERROR\",\"msg\":\"http_listen_failed\"}\n",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "git",
+      "status",
+      "--porcelain"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--exit-code"
+    ],
+    "cwd": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "verified_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec"
   }
 ]

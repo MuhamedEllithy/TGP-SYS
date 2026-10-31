@@ -358,5 +358,497 @@
       "exit_code": 0,
       "head_selection": "rev-parse HEAD exited 128 because bundle advertises only named branch; corrected with explicit --branch"
     }
+  },
+  "actual_head_verification": {
+    "original_commit": "0de108d4f6279966c55f52e4a54b47b043f41fbb",
+    "candidate_commit": "e7c15cac3a120c9977f1503226c8424bf9c06c80",
+    "actual_commit": "46555ea1a4f3ff14cd24354e1ec49c14e3ba74ec",
+    "files": [
+      ".env.example",
+      ".github/workflows/ci.yml",
+      ".gitignore",
+      "AGENTS.md",
+      "ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md",
+      "Makefile",
+      "README.md",
+      "api/docs.html",
+      "api/embed.go",
+      "api/openapi.yaml",
+      "bruno/README.md",
+      "bruno/assets-not-found.bru",
+      "bruno/bruno.json",
+      "bruno/environments/local.bru",
+      "bruno/health-live.bru",
+      "bruno/health-method-not-allowed.bru",
+      "bruno/health-ready.bru",
+      "cmd/api/main.go",
+      "cmd/dbcheck/main.go",
+      "db/migrations/000001_platform_probe.down.sql",
+      "db/migrations/000001_platform_probe.up.sql",
+      "deployments/local/compose.yaml",
+      "deployments/local/init-db.sh",
+      "deployments/local/migrate.sh",
+      "docs/architecture/overview.md",
+      "docs/architecture/phase-00-acceptance-review.md",
+      "docs/database/local.md",
+      "docs/decisions/0001-go-http-modular-monolith.md",
+      "docs/decisions/0002-postgresql.md",
+      "docs/decisions/0003-db-migrations.md",
+      "docs/decisions/0004-identity-codes.md",
+      "docs/decisions/0005-authentication-authorization.md",
+      "docs/decisions/0006-openapi-docs.md",
+      "docs/decisions/0007-private-storage.md",
+      "docs/decisions/0008-ci-testing.md",
+      "docs/decisions/0009-config-status-movements.md",
+      "docs/decisions/0010-consistency-open-decisions.md",
+      "docs/decisions/0011-dedicated-postgresql17-local.md",
+      "docs/decisions/README.md",
+      "docs/phases/evidence/phase-00-bruno-transport.json",
+      "docs/phases/evidence/phase-00-clean-checkout.json",
+      "docs/phases/evidence/phase-00-recovery-bootstrap.json",
+      "docs/phases/evidence/phase-00-recovery-git.json",
+      "docs/phases/evidence/phase-00-recovery-inventory.json",
+      "docs/phases/phase-00-browser-checklist.md",
+      "docs/phases/phase-00-git-recovery.md",
+      "docs/phases/phase-00-report.md",
+      "docs/phases/phase-00-staging-manifest.txt",
+      "docs/phases/phase-00-verification-history.md",
+      "docs/requirements/traceability.md",
+      "go.mod",
+      "go.sum",
+      "internal/platform/config/config.go",
+      "internal/platform/config/config_test.go",
+      "internal/platform/db/db.go",
+      "internal/platform/httpx/server.go",
+      "internal/platform/httpx/server_test.go",
+      "redocly.yaml",
+      "scripts/api_smoke.py",
+      "scripts/db_preflight.py",
+      "scripts/local_env.py",
+      "scripts/migrate.py",
+      "scripts/test_local_env.py",
+      "scripts/verify_phase0.sh",
+      "tests/integration/db_test.go",
+      "tools/go.mod",
+      "tools/package-lock.json",
+      "tools/package.json"
+    ],
+    "added_since_candidate": [
+      "docs/phases/evidence/phase-00-recovery-bootstrap.json",
+      "docs/phases/evidence/phase-00-recovery-git.json",
+      "docs/phases/evidence/phase-00-recovery-inventory.json"
+    ],
+    "changed_since_candidate": [
+      "README.md",
+      "docs/architecture/phase-00-acceptance-review.md",
+      "docs/phases/phase-00-git-recovery.md",
+      "docs/phases/phase-00-report.md",
+      "docs/phases/phase-00-staging-manifest.txt",
+      "docs/phases/phase-00-verification-history.md",
+      "docs/requirements/traceability.md"
+    ],
+    "documentation_differences": [
+      {
+        "path": "README.md",
+        "added_lines": 1,
+        "removed_lines": 1,
+        "diff": "--- candidate/README.md\n+++ actual-head/README.md\n@@ -1,6 +1,6 @@\n # Facility Management Backend\n \n-Phase 0 Go modular-monolith foundation for TGP-Sys, initially The Gate Plaza. Backend only; no business modules or authentication are implemented. The [master plan](ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md) is authoritative. [Phase 0 report](docs/phases/phase-00-report.md) records actual passes and blockers; Host automated verification is owner-reported PASS. Final acceptance is BLOCKED: the tested Git commit contains only README.md, live Bruno execution is blocked by sandbox sockets, and Scalar browser interaction is PENDING MANUAL VERIFICATION. See the current report for exact evidence.\n+Phase 0 Go modular-monolith foundation for TGP-Sys, initially The Gate Plaza. Backend only; no business modules or authentication are implemented. The [master plan](ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md) is authoritative. [Phase 0 report](docs/phases/phase-00-report.md) records actual passes and blockers; Host automated verification is owner-reported PASS. Final acceptance is BLOCKED by the sandbox read-only original Git metadata and live sockets. An isolated complete candidate commit passed clean-checkout offline bootstrap/tests; Scalar browser interaction is PENDING MANUAL VERIFICATION. See the current report for exact SHA/provenance and the [Git recovery guide](docs/phases/phase-00-git-recovery.md).\n \n ## Local setup (owner's WSL terminal)\n \n"
+      },
+      {
+        "path": "docs/architecture/phase-00-acceptance-review.md",
+        "added_lines": 4,
+        "removed_lines": 0,
+        "diff": "--- candidate/docs/architecture/phase-00-acceptance-review.md\n+++ actual-head/docs/architecture/phase-00-acceptance-review.md\n@@ -44,3 +44,7 @@\n 5. Confirm UUID/code normalization/home-current semantics before Phase 1 DDL; session/deny/MFA policy before Phase 2; config revision/idempotency/approval details before affected commands; storage/financial-field privacy before attachments. Production deployment, backup/PITR/restore and monitoring remain separate approval gates.\n \n No additional confirmed critical application vulnerability or approved-scope contradiction was established by this bounded review. That statement is not a full security audit. Live collection execution is BLOCKED; browser/schema rendering is PENDING MANUAL VERIFICATION. See the final Phase 0 report for exact evidence and overall BLOCKED acceptance status.\n+\n+## Authorized Git recovery follow-up\n+\n+The original source-completeness finding remains true of original HEAD because sandbox .git writes are blocked. A complete local candidate commit was safely created in temporary storage and its actual clean checkout passed offline bootstrap/build/tests/lint. This resolves candidate-source completeness, not original branch recovery or live/manual verification. See the current phase report for exact candidate SHA, inventory and host recovery procedure. No additional ADR or Phase 1 design was introduced.\n"
+      },
+      {
+        "path": "docs/phases/phase-00-git-recovery.md",
+        "added_lines": 10,
+        "removed_lines": 1,
+        "diff": "--- candidate/docs/phases/phase-00-git-recovery.md\n+++ actual-head/docs/phases/phase-00-git-recovery.md\n@@ -24,7 +24,8 @@\n git add --pathspec-from-file=docs/phases/phase-00-staging-manifest.txt\n git diff --cached --name-only\n git diff --cached --stat\n-git diff --cached --check\n+# Markdown's intentional two-space hard breaks are checked by Python below.\n+git diff --cached --check -- . ':(glob,exclude)**/*.md'\n ```\n \n Before committing, run this staged-content check without echoing private values:\n@@ -48,6 +49,10 @@\n     content=subprocess.check_output(['git','show',':'+name])\n     assert not any(value in content for value in private), 'Private credential finding; stop and inspect privately'\n     assert not any(re.search(pattern,content) for pattern in patterns), 'Credential-pattern finding; stop and inspect privately'\n+    for line in content.splitlines():\n+        match=re.search(rb'[ \\t]+$',line)\n+        if match:\n+            assert name.endswith('.md') and match.group()==b'  ', 'Unexpected trailing whitespace; stop for review'\n assert expected <= set(subprocess.check_output(['git','ls-files','-z']).decode().strip('\\0').split('\\0')), 'Manifest file missing from index'\n print('PASS: intended files included, staged paths reviewed, private environment excluded, no credential findings')\n PY\n@@ -61,3 +66,7 @@\n If any command fails, stop and report; do not reset, clean or overwrite user work. This is an owner-executed host procedure, not a claim that the agent committed the original branch. Do not blindly cherry-pick/reset to a temporary candidate over uncommitted files.\n \n After recovery, clone the new exact revision to an isolated directory and rerun non-infrastructure onboarding/tests. The default Compose names/ports/volume belong to the existing development instance; do not run `make db-up`, `make migrate-*`, or `make verify-phase0` from the clone against that instance. Fresh live DB checks need separate isolated resources with explicit reviewed names/ports and disposable storage. Existing host evidence and browser/Bruno procedures remain separate.\n+\n+The default unfiltered `git diff --check` flags existing two-space Markdown hard breaks, including the unchanged master plan. These are intentional Markdown syntax, not ignored code/test failures. The procedure checks non-Markdown files with Git and permits only exactly two spaces at Markdown line endings; tabs or other trailing whitespace fail.\n+\n+The retained candidate bundle advertises `phase0-recovery-candidate`, not a default HEAD. For inspection in a new temporary directory, use `git clone --branch phase0-recovery-candidate <bundle-path> <new-empty-directory>`. Do not clone it over the working repository. The current report records its exact SHA and successful bundle integrity/file-inventory verification.\n"
+      },
+      {
+        "path": "docs/phases/phase-00-report.md",
+        "added_lines": 232,
+        "removed_lines": 165,
+        "diff": "--- candidate/docs/phases/phase-00-report.md\n+++ actual-head/docs/phases/phase-00-report.md\n@@ -1,168 +1,235 @@\n-# Phase 0 \u2014 Final acceptance verification report\n-\n-Overall result: **BLOCKED**  \n-Review date: 2026-10-31  \n-Exact tested Git revision: `0de108d4f6279966c55f52e4a54b47b043f41fbb`  \n-Working branch: `main`; detached isolated checkout created outside the repository.  \n-Phase 1: not started. No deployment, push, staging, commit, reset, clean, database change or infrastructure mutation was performed.\n-\n-Only result categories used here: **PASS / FAIL / BLOCKED / PENDING MANUAL VERIFICATION**. Provenance and scope are separate from result categories. Prior snapshots are preserved in [verification history](phase-00-verification-history.md); this report supersedes their current acceptance assessment.\n-\n-## 1. Executive assessment and repository state\n-\n-**FAIL \u2014 committed source completeness.** The exact commit contains only `README.md`. The current README is modified, while application source, instructions/master plan, all eleven ADRs, OpenAPI, migrations, Compose, tests, Go/npm locks and other Phase 0 deliverables are untracked. A detached clean checkout therefore does not contain the host-tested Phase 0 foundation. Successful earlier working-tree tests cannot be attributed to this commit.\n-\n-**PASS \u2014 isolated checkout creation/preservation.** A real local Git clone was created under `/tmp/tgp-phase0-clean-f4s5a0r4/checkout`, without hardlinks or borrowing the working tree. It was detached at the exact SHA above and `git status --porcelain` was empty. No `.env`, node_modules, Go modules/build cache or uncommitted application source was copied into it. Original HEAD/index/uncommitted work were not reset or overwritten. Authorized changes in this task are limited to Bruno acceptance configuration and related documentation/evidence.\n-\n-**BLOCKED \u2014 final Phase 0 acceptance.** The clean-bootstrap gate fails because the deliverable is absent from the committed revision. Live Bruno execution is additionally blocked by sandbox network policy. Scalar Browser Try-it/schema rendering remains **PENDING MANUAL VERIFICATION**. No Phase 1 work is permitted.\n-\n-## 2. Fresh-checkout bootstrap: exact commands and results\n-\n-Clone parent: `/tmp/tgp-phase0-clean-f4s5a0r4`. Installed Go 1.26.10 compiler used directly as a tool; build/module caches were new isolated paths, not reused working-repository artifacts:\n+# Phase 0 \u2014 Git recovery and final acceptance report\n+\n+Overall result: **BLOCKED**\n+\n+Original repository: `/home/muhamed/Projects/TGP-Sys/backend`, branch `main`.\n+\n+Original and current original-repository HEAD: `0de108d4f6279966c55f52e4a54b47b043f41fbb`.\n+\n+New local **candidate** commit: **`e7c15cac3a120c9977f1503226c8424bf9c06c80`**, created only in an isolated temporary repository, branch `phase0-recovery-candidate`.\n+\n+Candidate tree: `268eb702c28523332d265920a50eaad7ac68f4f0`.\n+\n+No new commit was created on the original branch: its Git metadata is read-only to this sandbox. Candidate verification is real committed-source verification, but is **not** a claim the working repository was recovered. Results use **PASS / FAIL / BLOCKED / PENDING MANUAL VERIFICATION**. Phase 1 is not started; no deployment or push occurred.\n+\n+## 1. Git audit, staging review and permission boundary\n+\n+**PASS \u2014 repository/security audit.** Root, branch and full original SHA were inspected. Initial HEAD tracks only README.md; README is modified and the foundation is untracked. There was no pre-existing staged work. All 63 pre-existing intended files were reviewed as Phase 0 source/docs/locks/CI and explicitly enumerated, without `git add .` or `git add -A`. Two recovery documents were added before candidate creation, giving 65 candidate files. Final evidence adds three documentary JSON files, giving 68 paths in the current [precise host staging manifest](phase-00-staging-manifest.txt).\n+\n+Reviewed `.gitignore` excludes `.env`/variants, installed dependencies, caches, build outputs and logs. Actual `.env` is ignored, untracked and mode 0600. Known private password values and common key/token/private-key patterns were checked without displaying values. No real credentials, local databases, Docker volumes, runtime logs, node_modules or unrelated project files belong to the manifest. Historical sanitized JSON under docs is deliberate validation evidence, not application logs. Generated recovery bundle remains ignored under `.tools` and is never staged.\n+\n+**BLOCKED \u2014 original-repository staging/local commit.** Actual explicit Python subprocess used `git add --` followed by the reviewed 63 individual paths. Exit 128:\n+\n+```text\n+fatal: Unable to create '/home/muhamed/Projects/TGP-Sys/backend/.git/index.lock': Read-only file system\n+```\n+\n+No escalation, chmod/chown, alternate index for the protected repository, reset, clean, force checkout or permission bypass was attempted. Original HEAD/index and unrelated work are preserved. This is an execution-environment blocker, not an unexplained failure to commit or an ambiguity about approved source.\n+\n+**PASS \u2014 safe candidate commit.** A separate writable clone of the old revision was created under `/tmp/tgp-phase0-recovery-9vdwwwub/candidate`. Only the 65 reviewed non-secret manifest files were copied there and staged individually. Index content bytes were compared to reviewed SHA-256 fingerprints; tracked paths exactly matched the manifest. A local commit was created with the configured author identity and message:\n+\n+```text\n+chore(phase0): establish Go backend foundation\n+```\n+\n+It contains the complete Phase 0 foundation at candidate creation time. This writes only new temporary Git metadata, not the original repository's protected `.git`. Later report/evidence/host-guide edits are working-tree documentation changes, not part of the tested candidate; application source/config/locks/collections remain byte-identical to that candidate.\n+\n+Default `git diff --cached --check` reported only intentional two-space Markdown hard breaks, including the unchanged master plan and ADR metadata. Every finding was inspected: Markdown files, exactly two trailing spaces, no tabs/other whitespace findings. These semantic Markdown line breaks were preserved, not mistaken for runtime/security errors. The host guide checks non-Markdown whitespace with Git and permits exactly two spaces in Markdown through a staged-content validator. No test failure was skipped.\n+\n+## 2. Complete committed inventory and local handoff\n+\n+The candidate's complete 65-file inventory, sizes and SHA-256 values are in [recovery inventory](evidence/phase-00-recovery-inventory.json). All eleven ADRs, the authoritative master plan, onboarding/instructions, Go module/checksums, npm lock, OpenAPI/embed/docs, scripts/tests, migrations, Compose and CI are represented. The original Git HEAD still contains only README.md.\n+\n+Candidate files:\n+\n+- `.env.example`\n+- `.github/workflows/ci.yml`\n+- `.gitignore`\n+- `AGENTS.md`\n+- `ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md`\n+- `Makefile`\n+- `README.md`\n+- `api/docs.html`\n+- `api/embed.go`\n+- `api/openapi.yaml`\n+- `bruno/README.md`\n+- `bruno/assets-not-found.bru`\n+- `bruno/bruno.json`\n+- `bruno/environments/local.bru`\n+- `bruno/health-live.bru`\n+- `bruno/health-method-not-allowed.bru`\n+- `bruno/health-ready.bru`\n+- `cmd/api/main.go`\n+- `cmd/dbcheck/main.go`\n+- `db/migrations/000001_platform_probe.down.sql`\n+- `db/migrations/000001_platform_probe.up.sql`\n+- `deployments/local/compose.yaml`\n+- `deployments/local/init-db.sh`\n+- `deployments/local/migrate.sh`\n+- `docs/architecture/overview.md`\n+- `docs/architecture/phase-00-acceptance-review.md`\n+- `docs/database/local.md`\n+- `docs/decisions/0001-go-http-modular-monolith.md`\n+- `docs/decisions/0002-postgresql.md`\n+- `docs/decisions/0003-db-migrations.md`\n+- `docs/decisions/0004-identity-codes.md`\n+- `docs/decisions/0005-authentication-authorization.md`\n+- `docs/decisions/0006-openapi-docs.md`\n+- `docs/decisions/0007-private-storage.md`\n+- `docs/decisions/0008-ci-testing.md`\n+- `docs/decisions/0009-config-status-movements.md`\n+- `docs/decisions/0010-consistency-open-decisions.md`\n+- `docs/decisions/0011-dedicated-postgresql17-local.md`\n+- `docs/decisions/README.md`\n+- `docs/phases/evidence/phase-00-bruno-transport.json`\n+- `docs/phases/evidence/phase-00-clean-checkout.json`\n+- `docs/phases/phase-00-browser-checklist.md`\n+- `docs/phases/phase-00-git-recovery.md`\n+- `docs/phases/phase-00-report.md`\n+- `docs/phases/phase-00-staging-manifest.txt`\n+- `docs/phases/phase-00-verification-history.md`\n+- `docs/requirements/traceability.md`\n+- `go.mod`\n+- `go.sum`\n+- `internal/platform/config/config.go`\n+- `internal/platform/config/config_test.go`\n+- `internal/platform/db/db.go`\n+- `internal/platform/httpx/server.go`\n+- `internal/platform/httpx/server_test.go`\n+- `redocly.yaml`\n+- `scripts/api_smoke.py`\n+- `scripts/db_preflight.py`\n+- `scripts/local_env.py`\n+- `scripts/migrate.py`\n+- `scripts/test_local_env.py`\n+- `scripts/verify_phase0.sh`\n+- `tests/integration/db_test.go`\n+- `tools/go.mod`\n+- `tools/package-lock.json`\n+- `tools/package.json`\n+\n+A verified, mode-0600, ignored recovery bundle retains the local candidate commit:\n+\n+```text\n+.tools/phase0-recovery-e7c15cac.bundle\n+```\n+\n+It contains no `.env` or installed/generated runtime artifacts. An actual bundle clone using `--branch phase0-recovery-candidate` verified the exact SHA and all 65 file hashes; that check clone was removed. The bundle advertises its named branch only: an initial clone without `--branch` could not select a default HEAD, so the explicit-branch form is required. It is not staged. Do not reset/cherry-pick over uncommitted work merely to import it. The [Git recovery guide](phase-00-git-recovery.md) gives explicit WSL manifest staging, staged-content secret/whitespace validation, local commit, SHA recording and inventory commands. The current 68-path manifest also includes the final documentation evidence. An owner host commit will have its own exact SHA and must be recorded; do not mislabel it as this candidate without comparison.\n+\n+## 3. Clean committed checkout and bootstrap environment\n+\n+**PASS \u2014 exact committed checkout.** A second clone was made from the candidate repository with `--no-local --no-hardlinks --no-checkout`, then detached at `e7c15cac3a120c9977f1503226c8424bf9c06c80` in `/tmp/tgp-phase0-recovery-9vdwwwub/checkout`. It had all 65 tracked files, clean status, no `.env`, no node_modules and no application source borrowed from the original working tree. No original source change or build artifact was copied into it after checkout.\n+\n+Only task-local bootstrap credentials were generated there (mode 0600). DB target was explicitly set to **127.0.0.1:16543**, and API startup target to **127.0.0.1:16544**, distinct from existing development ports 55432/8080 and unrelated 54322. Those are isolated intended targets, not claims of available/running services. No Docker service, network, volume or database was created. Original private environment was not copied or changed.\n+\n+**BLOCKED \u2014 online onboarding with empty caches.** `make setup` first ran with fresh module/build/npm cache paths. Registry DNS/socket creation for proxy.golang.org was denied; exit 2. This is recorded, not counted as a network bootstrap pass.\n+\n+**PASS \u2014 offline dependency installation.** The same documented `make setup` command then succeeded using existing downloaded registry archives as an offline dependency source, with empty task-local extraction/build caches and no existing node_modules. Exact non-secret environment:\n+\n+```text\n+PATH prefix=/home/muhamed/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.10.linux-amd64/bin\n+GOMODCACHE=/tmp/tgp-phase0-recovery-9vdwwwub/module-cache\n+GOCACHE=/tmp/tgp-phase0-recovery-9vdwwwub/build-cache\n+GOPROXY=file:///home/muhamed/go/pkg/mod/cache/download\n+GOSUMDB=off\n+npm_config_offline=true\n+npm_config_cache=/tmp/facility-npm-cache\n+```\n+\n+Installed Go 1.26.10 is a compiler tool, not an original project artifact. The file proxy supplies Go registry archives; extraction and compilation occurred afresh. Committed go.sum and `go mod verify` validate archive/module content. No new online transparency/advisory lookup is claimed with GOSUMDB off. npm ci installed 284 packages from the committed lock using tarball cache, without reusing original node_modules. Its offline audit message is not an independent current vulnerability scan.\n+\n+After setup/tests, both `git status --porcelain` and `git diff --exit-code` were clean. No committed manifest/lock/source changed during bootstrap.\n+\n+## 4. Exact clean-checkout commands and results\n+\n+Full argv, working directories, exit codes and outputs: [Git commands](evidence/phase-00-recovery-git.json) and [bootstrap commands](evidence/phase-00-recovery-bootstrap.json). These describe the candidate, not the old README-only checkout.\n+\n+| Command / check | Result | Evidence |\n+|---|---|---|\n+| Original `git add -- <63 explicit paths>` | BLOCKED | Exit 128, original index.lock read-only; no original local commit |\n+| Candidate clone/copy/explicit stage/content comparison/local commit | PASS | Exact candidate SHA above, 65 files |\n+| Second clone and detached checkout of candidate | PASS | Clean committed source, required artifacts all present |\n+| `python3 scripts/local_env.py --port 16543` in clone | PASS | New private local-only configuration, not copied dev credentials |\n+| `make setup` with empty caches/default online registry | BLOCKED | Exit 2, proxy.golang.org socket/DNS restriction |\n+| `make setup` with offline dependency environment | PASS | Exit 0: tidy, download, verify, locked npm ci |\n+| `go mod verify` | PASS | All modules verified in fresh extraction cache |\n+| `go build -o /tmp/tgp-phase0-recovery-9vdwwwub/api ./cmd/api` | PASS | Actual compilation from candidate source |\n+| `go test -count=1 ./...` | PASS | All candidate packages compile; config/httpx pass, other packages have no standalone tests |\n+| `go test -race -count=1 ./...` | PASS | Actual uncached race test execution |\n+| `make lint` | PASS | gofmt check and full go vet |\n+| `make openapi-lint` | PASS | Redocly validates OpenAPI 3.1.1 |\n+| `python3 -m unittest discover -s scripts -p 'test_*.py'` | PASS | Seven environment-safety tests |\n+| `docker compose --env-file .env -f deployments/local/compose.yaml config --quiet` | PASS | Clone configuration resolves without printing secrets; not live Docker proof |\n+| `python3 scripts/local_env.py --run /tmp/tgp-phase0-recovery-9vdwwwub/api` | BLOCKED | Exit 1, redacted http_listen_failed; direct port-16544 socket probe confirms PermissionError errno 1 |\n+| `docker info --format '{{.ServerVersion}}'` | BLOCKED | Daemon socket access denied; no safe isolated live PostgreSQL available |\n+| Fresh isolated DB auth/migrations/integration/HTTP probes | BLOCKED | No live isolated DB/API; no development DB reused or mutated |\n+| `git status --porcelain`; `git diff --exit-code` after checks | PASS | Empty/exit 0: committed source and locks unchanged |\n+\n+Prior owner-reported authorized host PostgreSQL 17.11/auth/wrong-password/non-superuser/migration/integration/health/docs/shutdown success remains **PASS** with owner-attestation provenance. It is not relabeled as a fresh live candidate-commit run or independent sandbox observation.\n+\n+## 5. Bruno live results and exact WSL command\n+\n+Collection structure/local environment, four implemented-system/negative behaviors, ten declarative assertions and response script syntax were previously checked. Current task reran the actual documented safe-mode CLI:\n \n ```sh\n-GOTOOLCHAIN=local\n-GOCACHE=/tmp/tgp-phase0-clean-f4s5a0r4/go-build-cache\n-GOMODCACHE=/tmp/tgp-phase0-clean-f4s5a0r4/go-module-cache\n-# Go executable:\n-# /home/muhamed/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.10.linux-amd64/bin/go\n-```\n-\n-These variables were supplied through the subprocess environment, not used to change global configuration. Full argv, cwd, exit codes and output are preserved in [clean-checkout command evidence](evidence/phase-00-clean-checkout.json).\n-\n-| Command | Result | Actual observation |\n+# cwd: bruno/\n+/tmp/tgp-phase0-bruno-cli/node_modules/.bin/bru run --env local --sandbox safe --reporter-json /tmp/tgp-phase0-bruno-recovery-results.json\n+```\n+\n+**BLOCKED** \u2014 exit 1, four connection attempts, four transport errors (`connect EPERM 127.0.0.1:8080`), **zero HTTP responses, zero tests and zero assertions executed**. Passed assertions: 0. Failed response assertions: 0, because none ran. Raw CLI labels the run FAIL due to transport; this is not evidence that the API returned wrong statuses. No host Bruno PASS is fabricated.\n+\n+Use the existing [Bruno guide](../../bruno/README.md). Exact owner WSL steps, reusing a running API; if absent run only `make run` separately, with no migration/container change:\n+\n+```sh\n+cd ~/Projects/TGP-Sys/backend\n+curl --fail --silent --show-error http://127.0.0.1:8080/health/live\n+curl --fail --silent --show-error http://127.0.0.1:8080/health/ready\n+tgp_bruno_tools=$(mktemp -d /tmp/tgp-bruno-tools.XXXXXX)\n+tgp_bruno_results=$(mktemp -d /tmp/tgp-bruno-results.XXXXXX)\n+npm install --prefix \"$tgp_bruno_tools\" --no-save --ignore-scripts @usebruno/cli@4.0.0\n+cd bruno\n+\"$tgp_bruno_tools/node_modules/.bin/bru\" run --env local --sandbox safe --reporter-json \"$tgp_bruno_results/results.json\"\n+```\n+\n+Expected four successful cases: GET live 200/live; GET ready 200/ready; GET unimplemented assets 404/not_found; POST live 405/method_not_allowed and Allow GET, HEAD. JSON/header/request-ID and error details assertions must actually execute. Do not pass database secrets to Bruno or disable failing readiness assertions.\n+\n+## 6. Scalar and manual browser verification\n+\n+OpenAPI lint is **PASS** from the candidate clone. Prior static route/schema/example/handler consistency checks are **PASS**. Prior owner host `/docs` and `/openapi.yaml` HTTP availability is **PASS** as owner-reported working-tree evidence, not a browser interaction claim. Fresh candidate live HTTP/docs verification is **BLOCKED** by socket permissions.\n+\n+**PENDING MANUAL VERIFICATION** \u2014 exact original development configuration gives **http://127.0.0.1:8080/docs**, contract **http://127.0.0.1:8080/openapi.yaml**. Owner must follow [the browser checklist](phase-00-browser-checklist.md): render the pinned Scalar UI and schemas; send real GET `/health/live` and `/health/ready` from the same origin; observe HTTP 200, respectively data.status live/ready, and matching 32-hex meta.request_id/X-Request-ID. An example preview is not a request.\n+\n+If equivalent curl fails, investigate API/DB/bind first. If curl works but browser fails, inspect CDN, CSP, browser origin/loopback forwarding and Network/Console errors. Do not substitute localhost for the contract's 127.0.0.1 origin, enable wildcard CORS, weaken CSP or disable browser security. No manual evidence was supplied in this task.\n+\n+## 7. Security, preservation and cleanup\n+\n+- **PASS:** explicit scoped manifests, no unrelated paths, generated-private-value and credential-pattern checks; no .env, tokens, local storage, node_modules, logs, binaries or ignored recovery bundle staged in candidate.\n+- **PASS:** original source/index/HEAD preserved, original .env remains ignored/untracked/0600 and unchanged. No production/unrelated infrastructure mutation or original development DB operation.\n+- **PASS:** candidate includes eleven ADRs and all required foundation code/config/docs/locks; no Phase 1 feature or new architecture introduced.\n+- **PASS:** exact non-secret command evidence and source inventory persisted in docs. Historical evidence is retained in [history](phase-00-verification-history.md), not rewritten as passing runs.\n+- Task-created clone/API/installed node_modules/extraction/build/npm caches and generated clone credentials contain no user data. After preserving evidence and the verified ignored bundle, only this task's temporary verification directory is eligible for removal. Shared/pre-existing caches and earlier-task temporary directories must not be removed. Cleanup result: **PASS** \u2014 the exact task-created temporary verification directory was removed after confirming both Git clones had no user edits and the ignored bundle verified. Generated clone credentials, node_modules, compiler output and task-local caches were removed with it. Shared/pre-existing caches and earlier-task directories were preserved. The bundle remains for owner review; no source/secret file in the original repository was removed.\n+\n+## 8. Complete final acceptance checklist\n+\n+| Gate | Result | Boundary |\n |---|---|---|\n-| `git rev-parse HEAD` | PASS | Full SHA above |\n-| `git status --short` | PASS | Recorded modified README and untracked Phase 0 deliverables; `.env` ignored |\n-| `git ls-tree -r --name-only 0de108d4f6279966c55f52e4a54b47b043f41fbb` | FAIL | Completeness gate: only README.md exists in the tree; command itself exits 0 |\n-| `git clone --no-local --no-hardlinks --no-checkout /home/muhamed/Projects/TGP-Sys/backend /tmp/tgp-phase0-clean-f4s5a0r4/checkout` | PASS | Exit 0, isolated Git repository |\n-| `git checkout --detach 0de108d4f6279966c55f52e4a54b47b043f41fbb` in clone | PASS | Exit 0 |\n-| `git status --porcelain` in clone | PASS | Empty output, clean detached checkout |\n-| Required-file inventory in clone | FAIL | Makefile, go.mod, go.sum, AGENTS, master plan, API, main source, report and tooling lock absent; eleven ADRs absent too |\n-| `make setup` in clone | FAIL | Exit 2: no rule to make target setup; documented onboarding cannot run |\n-| Isolated Go `mod download` | BLOCKED | Exit 1: no modules specified; go.mod absent, not an application dependency installation result |\n-| Isolated Go `build ./...` | BLOCKED | Exit 1: directory does not contain main module |\n-| Isolated Go `vet ./...` | BLOCKED | Same missing-module error |\n-| Isolated Go `test ./...` | BLOCKED | Same missing-module error |\n-| `gofmt -l cmd internal api tests` in clone | BLOCKED | Exit 2: source directories absent; empty-source formatting is not counted as a pass |\n-| `make openapi-lint` in clone | BLOCKED | Exit 2: no lint target, contract/tooling absent |\n-| Isolated startup, DB connectivity and integration checks | BLOCKED | No server/Compose/migrations in tested revision; no safe isolated live environment available to this sandbox |\n-\n-No database/container/port/volume was allocated for this failed-source checkout. Existing TGP-Sys PostgreSQL and unrelated infrastructure were neither reused for mutations nor changed. Do not substitute a dirty source export or copy the working `.env` into the checkout and call that a committed fresh-clone pass.\n-\n-## 3. Bruno collection and CLI evidence\n-\n-**PASS \u2014 static collection/configuration verification.** Original collection had two hardcoded probe URLs and no named local environment or negative requests. This task adds `bruno/environments/local.bru`, parameterizes both probe URLs with `{{base_url}}`, and adds 404/405 cases. The actual public API origin is **http://127.0.0.1:8080**, derived without exposing database credentials. All requests use auth:none; no secret/session or fabricated business API is introduced.\n-\n-| Request | Expected actual HTTP response |\n-|---|---|\n-| GET `/health/live` | 200, `data.status=live` |\n-| GET `/health/ready` | 200, `data.status=ready`; DB must really be ready |\n-| GET `/api/v1/assets` | 404, `error.code=not_found`, expected message, empty details, no data |\n-| POST `/health/live` | 405, `error.code=method_not_allowed`, empty details, no data, `Allow: GET, HEAD` |\n-\n-Each request tests JSON Content-Type and a generated 32-character lower-hex request ID matching the response header. Actual `@usebruno/lang` parser validated collection metadata, environment, four requests and ten enabled declarative assertions. Response scripts compile with Node's VM parser. This is syntax/structure evidence, not execution of response assertions or proof of safe-runtime behavior.\n-\n-**PASS \u2014 temporary CLI installation/version.** No project dependency/lock was changed:\n-\n-```sh\n-npm install --prefix /tmp/tgp-phase0-bruno-cli --no-save --ignore-scripts --fetch-retries=0 --fetch-timeout=10000 --cache /tmp/tgp-phase0-bruno-npm-cache @usebruno/cli@4.0.0\n-/tmp/tgp-phase0-bruno-cli/node_modules/.bin/bru --version\n-/tmp/tgp-phase0-bruno-cli/node_modules/.bin/bru run --help\n-```\n-\n-Install exit 0; CLI reports 4.0.0. Deprecated transitive-package warnings were emitted; no advisory clearance is claimed. Temporary tooling is outside the repository.\n-\n-**BLOCKED \u2014 live CLI execution**, actual command from the working `bruno/` directory:\n-\n-```sh\n-/tmp/tgp-phase0-bruno-cli/node_modules/.bin/bru run --env local --sandbox safe --reporter-json /tmp/tgp-phase0-bruno-results.json\n-```\n-\n-Exit 1. All four requests report `connect EPERM 127.0.0.1:8080`. CLI's raw summary says FAIL due to transport failure: four failed requests, **zero tests and zero assertions executed**. Acceptance result is BLOCKED because the sandbox cannot create the connection; no HTTP response/assertion failure is demonstrated. No host Bruno success was supplied. The [sanitized transport evidence](evidence/phase-00-bruno-transport.json) preserves counts/command/error; raw report remains at the temporary path above.\n-\n-[Bruno README](../../bruno/README.md) contains exact WSL install/run commands, expected statuses, assertion details and a safe-mode invocation. Reuse an existing API or run only `make run` if needed; no DB startup, migration, reset or outage is required. Do not fabricate readiness or use developer sandbox mode to bypass execution policy.\n-\n-## 4. Scalar/OpenAPI verification and manual browser task\n-\n-**PASS \u2014 working-tree static contract checks.** OpenAPI 3.1.1 lint passes. All four source contract paths match implemented transport paths; GET/HEAD give eight documented read operations. No asset business API is advertised. Committed response examples validate against their JSON Schemas, and existing handler/config tests pass. Embedded `/docs` shell references the pinned Scalar 1.76.4 CDN script and `/openapi.yaml` contract.\n-\n-**PASS \u2014 prior owner-reported host HTTP availability.** The owner explicitly reported `/docs`, `/openapi.yaml`, probes, DB connectivity, migrations and graceful shutdown successful in the authorized host environment. Those results apply to the uncommitted working-tree implementation, not this README-only commit. They are not silently relabeled as sandbox replay or Bruno/browser verification.\n-\n-**BLOCKED \u2014 current live replay.** Read-only urllib attempts to `/health/live`, `/health/ready`, `/docs` and `/openapi.yaml` from this sandbox each raised URLError. Docker client exists, but daemon access is denied. No stopped process or unhealthy DB is inferred from these sandbox restrictions; no replacement service or database was launched.\n-\n-**PENDING MANUAL VERIFICATION \u2014 actual schema rendering and browser Try-it.** Owner must use [the exact browser checklist](phase-00-browser-checklist.md):\n-\n-- Open **http://127.0.0.1:8080/docs**; verify UI/CDN/contract loads and Health/Meta/Error schemas render without reference errors.\n-- Select server **http://127.0.0.1:8080**; send actual GET `/health/live` and GET `/health/ready`.\n-- Expect HTTP 200 and respectively `{\"data\":{\"status\":\"live\"},\"meta\":{\"request_id\":\"<32 lowercase hex>\"}}` and the equivalent `ready` body. Response `X-Request-ID` must equal the actual body value.\n-- Inspect actual Network requests; an example preview is not a sent request. Capture browser/version/date/revision and sanitized observations.\n-- If curl also fails, investigate API/bind/DB first. If curl works but browser fails, inspect CDN, CSP, browser origin, proxy/extensions and host loopback forwarding. `localhost` and `127.0.0.1` differ as origins. Do not enable wildcard CORS, loosen CSP or disable browser security as a workaround.\n-\n-No manual browser/model-rendering or request-control result is claimed. A real readiness 503 is not a passing expected-ready test; do not alter existing DB infrastructure to manufacture an error test.\n-\n-## 5. Architecture and security review\n-\n-**PASS \u2014 all eleven ADRs reviewed for design consistency.** See the [ADR-by-ADR architecture/security review](../architecture/phase-00-acceptance-review.md) for findings on modular boundaries, pgx/migrations, project isolation, auth/authorization, secrets, contract ownership, dynamic configuration, approval stages, inventory integrity and pinning.\n-\n-ADR 0002 is historical and superseded by 0011's dedicated PostgreSQL 17.11 setup. No business modules are implemented; future scoped denial/approval rules are documented gates, not silently treated as completed tests. No observation/sync/discrepancy approval may mutate official assets; separate authorized corrective commands remain required. No arbitrary movement/configuration scripting is introduced.\n-\n-**FAIL \u2014 critical acceptance finding C1:** intended source/locks/docs are absent from the tested commit. Existing successful host results cannot establish clean-clone reproducibility of that revision. No additional confirmed critical application vulnerability or approved-scope contradiction was established by this bounded review; no full security certification/advisory scan is claimed.\n-\n-## 6. Additional working-tree checks and evidence provenance\n-\n-These do not turn the failed committed checkout into a pass:\n-\n-| Exact command/check | Result | Scope |\n-|---|---|---|\n-| `GOTOOLCHAIN=go1.26.10 GOCACHE=/tmp/facility-go-cache GOPROXY=off go test -count=1 ./internal/platform/httpx ./internal/platform/config` | PASS | Working-tree fresh unit execution, no live DB |\n-| `make openapi-lint` | PASS | Working-tree Redocly 2.72.1, no lint errors/warnings |\n-| Python YAML + Draft202012Validator example validation | PASS | Four paths/eight read operations; examples satisfy component schemas; server origin matches configuration |\n-| Actual Bruno parser + Node VM script compilation | PASS | Four request URLs/methods/status assertions, ten declarative assertions, local environment; no live assertions executed |\n-| Private-settings inspection limited to public origin/docs flags | PASS | Actual HTTP_ADDR/local/docs configuration matches checklist; no passwords/DSNs displayed |\n-| `docker version --format '{{.Client.Version}} {{if .Server}}{{.Server.Version}}{{end}}'` | BLOCKED | Client 29.8.2; daemon query denied, no container mutation |\n-| urllib HTTP GET attempts for four system URLs | BLOCKED | URLError from restricted execution environment; no status code received |\n-| Prior owner-reported host DB/auth/migration/integration/Go/HTTP/shutdown checks | PASS | Owner attestation preserved; no raw host transcript/revision supplied; not a clean-checkout result |\n-\n-Exact source-clone outputs are in the JSON evidence. CLI stdout counts/transport errors are recorded in \u00a73 and evidence. Node/Python inline validators are described by operations and actual observations; they do not execute browser code or fabricate network responses. Earlier host/sandbox logs remain in verification history rather than being rewritten as new runs.\n-\n-## 7. Critical blockers and non-blocking technical debt\n-\n-| Finding | Result | Required action / boundary |\n-|---|---|---|\n-| C1: only README.md committed | FAIL | Review/version intended non-secret Phase 0 source/locks/docs, then repeat the isolated checkout using the resulting exact SHA; do not discard existing work or commit `.env` |\n-| Clean bootstrap/build/vet/test/lint/startup of actual deliverable revision | BLOCKED | Requires a committed deliverable; no working-tree file substitution |\n-| Live Bruno CLI assertions | BLOCKED | Run documented safe-mode CLI from authorized WSL host against real API; retain actual exit/assertion evidence |\n-| Scalar rendering/Browser Try-it | PENDING MANUAL VERIFICATION | Owner executes exact checklist and reports real outcomes |\n-| Owner final acceptance | PENDING MANUAL VERIFICATION | Review evidence after remaining gates; no silent next-phase approval |\n-\n-Non-blocking improvements are separately documented: verified immutable container/action pins, advisory/transitive-license review, complete secret-history scan, optional self-hosted renderer and hosted CI/release matrix. A tool tag/checksum is not an advisory scan. Temporary Bruno emitted dependency deprecations and is not added to application dependencies. ADR 0003's recorded SendBatch concern requires review before query expansion; current scaffold does not use it.\n-\n-Future decisions remain scoped to their phase gates: UUID/code normalization and home/current project semantics before domain DDL; session/deny/MFA policy before auth; configuration revision/idempotency/approval execution semantics; private storage/scanning/financial privacy; actual module-path ownership, licensing, production hosting/backups/restore/monitoring. No new architecture or implementation is introduced to address these now.\n-\n-## 8. Final Phase 0 acceptance checklist\n-\n-| Acceptance item | Result | Evidence boundary |\n-|---|---|---|\n-| Required foundation files and all eleven ADRs exist in working tree | PASS | Present/reviewed; not committed completeness |\n-| Required source/docs/locks committed at tested SHA | FAIL | README.md is the only committed file |\n-| Actual clean isolated checkout created, original work preserved | PASS | Detached clone, clean status, no copied secrets/uncommitted source |\n-| Fresh-clone onboarding succeeds | FAIL | make setup target absent |\n-| Fresh-clone dependencies/build/format/vet/tests/OpenAPI lint | BLOCKED | Source/manifests/targets absent |\n-| Fresh isolated API/DB startup | BLOCKED | No source in clone; no permitted isolated Docker/network environment |\n-| Prior core working-tree host DB/migration/integration/HTTP results | PASS | Owner-reported, not proof of tested commit |\n-| Working-tree contract/example/handler consistency | PASS | Direct static/lint/unit checks |\n-| Bruno structure/local origin/positive and 404/405 cases | PASS | Actual parser/script syntax checks; expected API behavior only |\n-| Bruno actual live CLI responses/assertions | BLOCKED | Four EPERM connections, zero executed assertions |\n-| Scalar schema rendering and Browser Try-it | PENDING MANUAL VERIFICATION | Owner evidence required |\n-| Architecture/master-plan consistency review | PASS | Eleven ADRs reviewed; future business rules not implemented |\n-| No secret output/copy, no unrelated infrastructure or DB mutation | PASS | Only public API origin in collection/evidence; no .env copied; no destructive operations |\n-| Owner acceptance | PENDING MANUAL VERIFICATION | No approval inferred |\n-\n-## 9. Changes, retained evidence and mandatory stop\n-\n-Changed only Bruno acceptance files and related documentation: existing two probe requests, new local environment and negative requests, Bruno README, browser checklist, architecture/security review, current report/history, README status/links and traceability. Added sanitized JSON acceptance evidence. No Go/Python/shell/SQL/Compose implementation, dependency pin/lock, private `.env`, original Git index/history or running infrastructure was changed. Temporary clone/CLI/raw evidence remain outside the working directory.\n-\n-**BLOCKED.** Core working-tree host success is preserved, but final acceptance cannot pass a README-only committed checkout, blocked live Bruno assertions and unverified browser interaction. Present this report for owner review, preserve the source, and supply evidence for the actual reviewed revision and manual checks before acceptance.\n-\n-STOP. Phase 1 is not started. No deployment or push was performed.\n+| Repository/staged/untracked/ignored/security audit | PASS | Intended project-only files identified; no unrelated work |\n+| Original branch receives authorized reviewed local commit | BLOCKED | Original .git mounted read-only; current original SHA unchanged |\n+| New isolated local candidate commit and full inventory | PASS | e7c15cac3a120c9977f1503226c8424bf9c06c80, 65 reviewed files |\n+| Candidate fresh Git checkout and no uncommitted source reliance | PASS | Actual second clone, detached SHA, clean before/after |\n+| Online registry bootstrap from empty caches | BLOCKED | Sandbox DNS/socket policy |\n+| Offline dependency archive bootstrap, compilation, unit/race/vet/format/lint | PASS | Fresh extraction/build/installation, committed checksums/locks |\n+| New environment bootstrap | PASS | Task-generated isolated-port credentials, no existing environment reused |\n+| Isolated candidate live PostgreSQL/migration/API/docs checks | BLOCKED | No permitted Docker/listen/socket path; existing dev DB untouched |\n+| Earlier core authorized host execution | PASS | Owner-reported; not claimed as this candidate's live run |\n+| Bruno actual HTTP responses/assertions | BLOCKED | Four transport errors, zero executed assertions |\n+| Scalar browser rendering/Try-it | PENDING MANUAL VERIFICATION | Owner evidence required |\n+| Owner final acceptance | PENDING MANUAL VERIFICATION | No approval inferred |\n+\n+## 9. Remaining risks and required owner action\n+\n+The safe original-repository local commit is still required on the WSL host using the manifest/security guide; the sandbox cannot perform it. The bundle/candidate does not move original HEAD. Record the actual new original commit SHA, then verify that revision without overwriting uncommitted work. Current final report/evidence/guide edits are not falsely represented as part of the tested earlier candidate.\n+\n+Non-blocking risks remain: online registry reproducibility is not independently verified here; offline audit output is not an advisory scan; container/action tags lack immutable digest pins; hosted CI/transitive license/advisory/secret-history review remains outstanding; Scalar depends on a CDN; module-path ownership, future identity/auth/config/approval/storage/operating policies and production backup/deployment choices remain gated. None authorizes Phase 1 or production work.\n+\n+**BLOCKED \u2014 request owner review/acceptance only after original Git recovery and remaining host/manual evidence.** No reset, clean, push, deployment, database recreation or Phase 1 implementation was performed.\n"
+      },
+      {
+        "path": "docs/phases/phase-00-staging-manifest.txt",
+        "added_lines": 3,
+        "removed_lines": 0,
+        "diff": "--- candidate/docs/phases/phase-00-staging-manifest.txt\n+++ actual-head/docs/phases/phase-00-staging-manifest.txt\n@@ -39,6 +39,9 @@\n docs/decisions/README.md\n docs/phases/evidence/phase-00-bruno-transport.json\n docs/phases/evidence/phase-00-clean-checkout.json\n+docs/phases/evidence/phase-00-recovery-bootstrap.json\n+docs/phases/evidence/phase-00-recovery-git.json\n+docs/phases/evidence/phase-00-recovery-inventory.json\n docs/phases/phase-00-browser-checklist.md\n docs/phases/phase-00-git-recovery.md\n docs/phases/phase-00-report.md\n"
+      },
+      {
+        "path": "docs/phases/phase-00-verification-history.md",
+        "added_lines": 174,
+        "removed_lines": 0,
+        "diff": "--- candidate/docs/phases/phase-00-verification-history.md\n+++ actual-head/docs/phases/phase-00-verification-history.md\n@@ -578,3 +578,177 @@\n **READY FOR OWNER REVIEW.** The previously blocked automated host verification is reported successful and has been reconciled with direct repository/sandbox evidence. **This status is not unconditional Phase 0 acceptance:** fresh-clone evidence is still required by the master plan, and manual Scalar Browser Try-it remains unverified. Review the documented gaps and recommendations, supply the remaining evidence, and explicitly approve or revise Phase 0 before any next-phase authorization.\n \n STOP. Phase 1 is **NOT STARTED**. No deployment, push or infrastructure alteration was performed.\n+\n+\n+---\n+\n+## Snapshot before authorized Git recovery attempt\n+\n+# Phase 0 \u2014 Final acceptance verification report\n+\n+Overall result: **BLOCKED**  \n+Review date: 2026-10-31  \n+Exact tested Git revision: `0de108d4f6279966c55f52e4a54b47b043f41fbb`  \n+Working branch: `main`; detached isolated checkout created outside the repository.  \n+Phase 1: not started. No deployment, push, staging, commit, reset, clean, database change or infrastructure mutation was performed.\n+\n+Only result categories used here: **PASS / FAIL / BLOCKED / PENDING MANUAL VERIFICATION**. Provenance and scope are separate from result categories. Prior snapshots are preserved in [verification history](phase-00-verification-history.md); this report supersedes their current acceptance assessment.\n+\n+## 1. Executive assessment and repository state\n+\n+**FAIL \u2014 committed source completeness.** The exact commit contains only `README.md`. The current README is modified, while application source, instructions/master plan, all eleven ADRs, OpenAPI, migrations, Compose, tests, Go/npm locks and other Phase 0 deliverables are untracked. A detached clean checkout therefore does not contain the host-tested Phase 0 foundation. Successful earlier working-tree tests cannot be attributed to this commit.\n+\n+**PASS \u2014 isolated checkout creation/preservation.** A real local Git clone was created under `/tmp/tgp-phase0-clean-f4s5a0r4/checkout`, without hardlinks or borrowing the working tree. It was detached at the exact SHA above and `git status --porcelain` was empty. No `.env`, node_modules, Go modules/build cache or uncommitted application source was copied into it. Original HEAD/index/uncommitted work were not reset or overwritten. Authorized changes in this task are limited to Bruno acceptance configuration and related documentation/evidence.\n+\n+**BLOCKED \u2014 final Phase 0 acceptance.** The clean-bootstrap gate fails because the deliverable is absent from the committed revision. Live Bruno execution is additionally blocked by sandbox network policy. Scalar Browser Try-it/schema rendering remains **PENDING MANUAL VERIFICATION**. No Phase 1 work is permitted.\n+\n+## 2. Fresh-checkout bootstrap: exact commands and results\n+\n+Clone parent: `/tmp/tgp-phase0-clean-f4s5a0r4`. Installed Go 1.26.10 compiler used directly as a tool; build/module caches were new isolated paths, not reused working-repository artifacts:\n+\n+```sh\n+GOTOOLCHAIN=local\n+GOCACHE=/tmp/tgp-phase0-clean-f4s5a0r4/go-build-cache\n+GOMODCACHE=/tmp/tgp-phase0-clean-f4s5a0r4/go-module-cache\n+# Go executable:\n+# /home/muhamed/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.26.10.linux-amd64/bin/go\n+```\n+\n+These variables were supplied through the subprocess environment, not used to change global configuration. Full argv, cwd, exit codes and output are preserved in [clean-checkout command evidence](evidence/phase-00-clean-checkout.json).\n+\n+| Command | Result | Actual observation |\n+|---|---|---|\n+| `git rev-parse HEAD` | PASS | Full SHA above |\n+| `git status --short` | PASS | Recorded modified README and untracked Phase 0 deliverables; `.env` ignored |\n+| `git ls-tree -r --name-only 0de108d4f6279966c55f52e4a54b47b043f41fbb` | FAIL | Completeness gate: only README.md exists in the tree; command itself exits 0 |\n+| `git clone --no-local --no-hardlinks --no-checkout /home/muhamed/Projects/TGP-Sys/backend /tmp/tgp-phase0-clean-f4s5a0r4/checkout` | PASS | Exit 0, isolated Git repository |\n+| `git checkout --detach 0de108d4f6279966c55f52e4a54b47b043f41fbb` in clone | PASS | Exit 0 |\n+| `git status --porcelain` in clone | PASS | Empty output, clean detached checkout |\n+| Required-file inventory in clone | FAIL | Makefile, go.mod, go.sum, AGENTS, master plan, API, main source, report and tooling lock absent; eleven ADRs absent too |\n+| `make setup` in clone | FAIL | Exit 2: no rule to make target setup; documented onboarding cannot run |\n+| Isolated Go `mod download` | BLOCKED | Exit 1: no modules specified; go.mod absent, not an application dependency installation result |\n+| Isolated Go `build ./...` | BLOCKED | Exit 1: directory does not contain main module |\n+| Isolated Go `vet ./...` | BLOCKED | Same missing-module error |\n+| Isolated Go `test ./...` | BLOCKED | Same missing-module error |\n+| `gofmt -l cmd internal api tests` in clone | BLOCKED | Exit 2: source directories absent; empty-source formatting is not counted as a pass |\n+| `make openapi-lint` in clone | BLOCKED | Exit 2: no lint target, contract/tooling absent |\n+| Isolated startup, DB connectivity and integration checks | BLOCKED | No server/Compose/migrations in tested revision; no safe isolated live environment available to this sandbox |\n+\n+No database/container/port/volume was allocated for this failed-source checkout. Existing TGP-Sys PostgreSQL and unrelated infrastructure were neither reused for mutations nor changed. Do not substitute a dirty source export or copy the working `.env` into the checkout and call that a committed fresh-clone pass.\n+\n+## 3. Bruno collection and CLI evidence\n+\n+**PASS \u2014 static collection/configuration verification.** Original collection had two hardcoded probe URLs and no named local environment or negative requests. This task adds `bruno/environments/local.bru`, parameterizes both probe URLs with `{{base_url}}`, and adds 404/405 cases. The actual public API origin is **http://127.0.0.1:8080**, derived without exposing database credentials. All requests use auth:none; no secret/session or fabricated business API is introduced.\n+\n+| Request | Expected actual HTTP response |\n+|---|---|\n+| GET `/health/live` | 200, `data.status=live` |\n+| GET `/health/ready` | 200, `data.status=ready`; DB must really be ready |\n+| GET `/api/v1/assets` | 404, `error.code=not_found`, expected message, empty details, no data |\n+| POST `/health/live` | 405, `error.code=method_not_allowed`, empty details, no data, `Allow: GET, HEAD` |\n+\n+Each request tests JSON Content-Type and a generated 32-character lower-hex request ID matching the response header. Actual `@usebruno/lang` parser validated collection metadata, environment, four requests and ten enabled declarative assertions. Response scripts compile with Node's VM parser. This is syntax/structure evidence, not execution of response assertions or proof of safe-runtime behavior.\n+\n+**PASS \u2014 temporary CLI installation/version.** No project dependency/lock was changed:\n+\n+```sh\n+npm install --prefix /tmp/tgp-phase0-bruno-cli --no-save --ignore-scripts --fetch-retries=0 --fetch-timeout=10000 --cache /tmp/tgp-phase0-bruno-npm-cache @usebruno/cli@4.0.0\n+/tmp/tgp-phase0-bruno-cli/node_modules/.bin/bru --version\n+/tmp/tgp-phase0-bruno-cli/node_modules/.bin/bru run --help\n+```\n+\n+Install exit 0; CLI reports 4.0.0. Deprecated transitive-package warnings were emitted; no advisory clearance is claimed. Temporary tooling is outside the repository.\n+\n+**BLOCKED \u2014 live CLI execution**, actual command from the working `bruno/` directory:\n+\n+```sh\n+/tmp/tgp-phase0-bruno-cli/node_modules/.bin/bru run --env local --sandbox safe --reporter-json /tmp/tgp-phase0-bruno-results.json\n+```\n+\n+Exit 1. All four requests report `connect EPERM 127.0.0.1:8080`. CLI's raw summary says FAIL due to transport failure: four failed requests, **zero tests and zero assertions executed**. Acceptance result is BLOCKED because the sandbox cannot create the connection; no HTTP response/assertion failure is demonstrated. No host Bruno success was supplied. The [sanitized transport evidence](evidence/phase-00-bruno-transport.json) preserves counts/command/error; raw report remains at the temporary path above.\n+\n+[Bruno README](../../bruno/README.md) contains exact WSL install/run commands, expected statuses, assertion details and a safe-mode invocation. Reuse an existing API or run only `make run` if needed; no DB startup, migration, reset or outage is required. Do not fabricate readiness or use developer sandbox mode to bypass execution policy.\n+\n+## 4. Scalar/OpenAPI verification and manual browser task\n+\n+**PASS \u2014 working-tree static contract checks.** OpenAPI 3.1.1 lint passes. All four source contract paths match implemented transport paths; GET/HEAD give eight documented read operations. No asset business API is advertised. Committed response examples validate against their JSON Schemas, and existing handler/config tests pass. Embedded `/docs` shell references the pinned Scalar 1.76.4 CDN script and `/openapi.yaml` contract.\n+\n+**PASS \u2014 prior owner-reported host HTTP availability.** The owner explicitly reported `/docs`, `/openapi.yaml`, probes, DB connectivity, migrations and graceful shutdown successful in the authorized host environment. Those results apply to the uncommitted working-tree implementation, not this README-only commit. They are not silently relabeled as sandbox replay or Bruno/browser verification.\n+\n+**BLOCKED \u2014 current live replay.** Read-only urllib attempts to `/health/live`, `/health/ready`, `/docs` and `/openapi.yaml` from this sandbox each raised URLError. Docker client exists, but daemon access is denied. No stopped process or unhealthy DB is inferred from these sandbox restrictions; no replacement service or database was launched.\n+\n+**PENDING MANUAL VERIFICATION \u2014 actual schema rendering and browser Try-it.** Owner must use [the exact browser checklist](phase-00-browser-checklist.md):\n+\n+- Open **http://127.0.0.1:8080/docs**; verify UI/CDN/contract loads and Health/Meta/Error schemas render without reference errors.\n+- Select server **http://127.0.0.1:8080**; send actual GET `/health/live` and GET `/health/ready`.\n+- Expect HTTP 200 and respectively `{\"data\":{\"status\":\"live\"},\"meta\":{\"request_id\":\"<32 lowercase hex>\"}}` and the equivalent `ready` body. Response `X-Request-ID` must equal the actual body value.\n+- Inspect actual Network requests; an example preview is not a sent request. Capture browser/version/date/revision and sanitized observations.\n+- If curl also fails, investigate API/bind/DB first. If curl works but browser fails, inspect CDN, CSP, browser origin, proxy/extensions and host loopback forwarding. `localhost` and `127.0.0.1` differ as origins. Do not enable wildcard CORS, loosen CSP or disable browser security as a workaround.\n+\n+No manual browser/model-rendering or request-control result is claimed. A real readiness 503 is not a passing expected-ready test; do not alter existing DB infrastructure to manufacture an error test.\n+\n+## 5. Architecture and security review\n+\n+**PASS \u2014 all eleven ADRs reviewed for design consistency.** See the [ADR-by-ADR architecture/security review](../architecture/phase-00-acceptance-review.md) for findings on modular boundaries, pgx/migrations, project isolation, auth/authorization, secrets, contract ownership, dynamic configuration, approval stages, inventory integrity and pinning.\n+\n+ADR 0002 is historical and superseded by 0011's dedicated PostgreSQL 17.11 setup. No business modules are implemented; future scoped denial/approval rules are documented gates, not silently treated as completed tests. No observation/sync/discrepancy approval may mutate official assets; separate authorized corrective commands remain required. No arbitrary movement/configuration scripting is introduced.\n+\n+**FAIL \u2014 critical acceptance finding C1:** intended source/locks/docs are absent from the tested commit. Existing successful host results cannot establish clean-clone reproducibility of that revision. No additional confirmed critical application vulnerability or approved-scope contradiction was established by this bounded review; no full security certification/advisory scan is claimed.\n+\n+## 6. Additional working-tree checks and evidence provenance\n+\n+These do not turn the failed committed checkout into a pass:\n+\n+| Exact command/check | Result | Scope |\n+|---|---|---|\n+| `GOTOOLCHAIN=go1.26.10 GOCACHE=/tmp/facility-go-cache GOPROXY=off go test -count=1 ./internal/platform/httpx ./internal/platform/config` | PASS | Working-tree fresh unit execution, no live DB |\n+| `make openapi-lint` | PASS | Working-tree Redocly 2.72.1, no lint errors/warnings |\n+| Python YAML + Draft202012Validator example validation | PASS | Four paths/eight read operations; examples satisfy component schemas; server origin matches configuration |\n+| Actual Bruno parser + Node VM script compilation | PASS | Four request URLs/methods/status assertions, ten declarative assertions, local environment; no live assertions executed |\n+| Private-settings inspection limited to public origin/docs flags | PASS | Actual HTTP_ADDR/local/docs configuration matches checklist; no passwords/DSNs displayed |\n+| `docker version --format '{{.Client.Version}} {{if .Server}}{{.Server.Version}}{{end}}'` | BLOCKED | Client 29.8.2; daemon query denied, no container mutation |\n+| urllib HTTP GET attempts for four system URLs | BLOCKED | URLError from restricted execution environment; no status code received |\n+| Prior owner-reported host DB/auth/migration/integration/Go/HTTP/shutdown checks | PASS | Owner attestation preserved; no raw host transcript/revision supplied; not a clean-checkout result |\n+\n+Exact source-clone outputs are in the JSON evidence. CLI stdout counts/transport errors are recorded in \u00a73 and evidence. Node/Python inline validators are described by operations and actual observations; they do not execute browser code or fabricate network responses. Earlier host/sandbox logs remain in verification history rather than being rewritten as new runs.\n+\n+## 7. Critical blockers and non-blocking technical debt\n+\n+| Finding | Result | Required action / boundary |\n+|---|---|---|\n+| C1: only README.md committed | FAIL | Review/version intended non-secret Phase 0 source/locks/docs, then repeat the isolated checkout using the resulting exact SHA; do not discard existing work or commit `.env` |\n+| Clean bootstrap/build/vet/test/lint/startup of actual deliverable revision | BLOCKED | Requires a committed deliverable; no working-tree file substitution |\n+| Live Bruno CLI assertions | BLOCKED | Run documented safe-mode CLI from authorized WSL host against real API; retain actual exit/assertion evidence |\n+| Scalar rendering/Browser Try-it | PENDING MANUAL VERIFICATION | Owner executes exact checklist and reports real outcomes |\n+| Owner final acceptance | PENDING MANUAL VERIFICATION | Review evidence after remaining gates; no silent next-phase approval |\n+\n+Non-blocking improvements are separately documented: verified immutable container/action pins, advisory/transitive-license review, complete secret-history scan, optional self-hosted renderer and hosted CI/release matrix. A tool tag/checksum is not an advisory scan. Temporary Bruno emitted dependency deprecations and is not added to application dependencies. ADR 0003's recorded SendBatch concern requires review before query expansion; current scaffold does not use it.\n+\n+Future decisions remain scoped to their phase gates: UUID/code normalization and home/current project semantics before domain DDL; session/deny/MFA policy before auth; configuration revision/idempotency/approval execution semantics; private storage/scanning/financial privacy; actual module-path ownership, licensing, production hosting/backups/restore/monitoring. No new architecture or implementation is introduced to address these now.\n+\n+## 8. Final Phase 0 acceptance checklist\n+\n+| Acceptance item | Result | Evidence boundary |\n+|---|---|---|\n+| Required foundation files and all eleven ADRs exist in working tree | PASS | Present/reviewed; not committed completeness |\n+| Required source/docs/locks committed at tested SHA | FAIL | README.md is the only committed file |\n+| Actual clean isolated checkout created, original work preserved | PASS | Detached clone, clean status, no copied secrets/uncommitted source |\n+| Fresh-clone onboarding succeeds | FAIL | make setup target absent |\n+| Fresh-clone dependencies/build/format/vet/tests/OpenAPI lint | BLOCKED | Source/manifests/targets absent |\n+| Fresh isolated API/DB startup | BLOCKED | No source in clone; no permitted isolated Docker/network environment |\n+| Prior core working-tree host DB/migration/integration/HTTP results | PASS | Owner-reported, not proof of tested commit |\n+| Working-tree contract/example/handler consistency | PASS | Direct static/lint/unit checks |\n+| Bruno structure/local origin/positive and 404/405 cases | PASS | Actual parser/script syntax checks; expected API behavior only |\n+| Bruno actual live CLI responses/assertions | BLOCKED | Four EPERM connections, zero executed assertions |\n+| Scalar schema rendering and Browser Try-it | PENDING MANUAL VERIFICATION | Owner evidence required |\n+| Architecture/master-plan consistency review | PASS | Eleven ADRs reviewed; future business rules not implemented |\n+| No secret output/copy, no unrelated infrastructure or DB mutation | PASS | Only public API origin in collection/evidence; no .env copied; no destructive operations |\n+| Owner acceptance | PENDING MANUAL VERIFICATION | No approval inferred |\n+\n+## 9. Changes, retained evidence and mandatory stop\n+\n+Changed only Bruno acceptance files and related documentation: existing two probe requests, new local environment and negative requests, Bruno README, browser checklist, architecture/security review, current report/history, README status/links and traceability. Added sanitized JSON acceptance evidence. No Go/Python/shell/SQL/Compose implementation, dependency pin/lock, private `.env`, original Git index/history or running infrastructure was changed. Temporary clone/CLI/raw evidence remain outside the working directory.\n+\n+**BLOCKED.** Core working-tree host success is preserved, but final acceptance cannot pass a README-only committed checkout, blocked live Bruno assertions and unverified browser interaction. Present this report for owner review, preserve the source, and supply evidence for the actual reviewed revision and manual checks before acceptance.\n+\n+STOP. Phase 1 is not started. No deployment or push was performed.\n"
+      },
+      {
+        "path": "docs/requirements/traceability.md",
+        "added_lines": 4,
+        "removed_lines": 0,
+        "diff": "--- candidate/docs/requirements/traceability.md\n+++ actual-head/docs/requirements/traceability.md\n@@ -47,3 +47,7 @@\n ## Final acceptance verification\n \n An actual detached checkout of `0de108d4f6279966c55f52e4a54b47b043f41fbb` contains only README.md: source completeness FAIL, downstream clean-bootstrap checks BLOCKED. The working-tree Bruno collection now has a local environment and 404/405 cases; parser/script syntax PASS, live CLI BLOCKED by EPERM. Scalar browser/schema rendering and Try-it are PENDING MANUAL VERIFICATION. See the [current report](../phases/phase-00-report.md), [architecture review](../architecture/phase-00-acceptance-review.md), and [browser checklist](../phases/phase-00-browser-checklist.md). No future requirement is implemented by this acceptance work.\n+\n+## Git recovery verification follow-up\n+\n+Original repository commit is BLOCKED by read-only .git. A complete isolated candidate commit and clean-checkout offline bootstrap/tests/lint are PASS, with exact SHA/inventory in the current report. Live candidate DB/API and Bruno remain BLOCKED by sandbox sockets; Scalar remains PENDING MANUAL VERIFICATION. This is evidence for Phase 0 only; no future requirement implementation is implied.\n"
+      }
+    ],
+    "offline_environment": {
+      "GOMODCACHE": "/tmp/tgp-phase0-actual-head-f2171vtg/modules",
+      "GOCACHE": "/tmp/tgp-phase0-actual-head-f2171vtg/build",
+      "GOPROXY": "file:///home/muhamed/go/pkg/mod/cache/download",
+      "GOSUMDB": "off",
+      "npm_config_offline": "true",
+      "npm_config_cache": "/tmp/facility-npm-cache"
+    },
+    "checkout": "/tmp/tgp-phase0-actual-head-f2171vtg/checkout",
+    "result": "PASS",
+    "scope": "committed file reconciliation and offline clean checkout checks; live HTTP/database not passed",
+    "committed_inventory": [
+      {
+        "path": ".env.example",
+        "bytes": 1098,
+        "sha256": "4bac8ff301adeb8b4b948ccb6c3580e9361885b1de917d92c6289625698bffae"
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 905,
+        "sha256": "cb2d99a5dd7af2ec4170f6b2674cfb1b01ab7f88a07edb36e8ade3b91e3d75f2"
+      },
+      {
+        "path": ".gitignore",
+        "bytes": 160,
+        "sha256": "35de3d0d0b388476041ae3d6af42b8aee2063231e420fbb007d4452e54efb0ad"
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 1911,
+        "sha256": "d7fcd3293c06da87f3b5dc16a0aa0ca753134c11a5db51bcc5f17339123a54c0"
+      },
+      {
+        "path": "ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md",
+        "bytes": 67865,
+        "sha256": "a9921d1134dd82fd27d828fbe53d7134d44b77d4b8946e3394234d3aaa7e9cf1"
+      },
+      {
+        "path": "Makefile",
+        "bytes": 1639,
+        "sha256": "d852a16bcdb8b62f873652dd25b3bc9306b39e50a9717fa324b1b806c757367e"
+      },
+      {
+        "path": "README.md",
+        "bytes": 5488,
+        "sha256": "8e2c8e1bd61b7a58459192f55a86eaf7a090022afe19ba48e09c1c88881ac397"
+      },
+      {
+        "path": "api/docs.html",
+        "bytes": 503,
+        "sha256": "2d2159f6402489e3d610bb85f8a240c6fb9b479ac1791b99ae611ca689b78426"
+      },
+      {
+        "path": "api/embed.go",
+        "bytes": 193,
+        "sha256": "9b6a790f565369aa3f279339a62a8e0a1f6d377b9c58c4e3953883de6842e748"
+      },
+      {
+        "path": "api/openapi.yaml",
+        "bytes": 8284,
+        "sha256": "a4151521d60d341b40108d5d526d951c8781d2e97365be507cb5e2eee98da43f"
+      },
+      {
+        "path": "bruno/README.md",
+        "bytes": 3106,
+        "sha256": "b8f86b9b7ea30c777b6c16072b90d1bd47a37eddd75ba3a0b370e23189e57b6f"
+      },
+      {
+        "path": "bruno/assets-not-found.bru",
+        "bytes": 807,
+        "sha256": "ec8b24a3a594f4818417452cdb4f5221dce4c40f3ba7969cdee0360ef99cdff9"
+      },
+      {
+        "path": "bruno/bruno.json",
+        "bytes": 95,
+        "sha256": "0ce998b1abf25934e6c8c97e0510b3228c15c0ffced8f3beb3614b6e5b5b5ce0"
+      },
+      {
+        "path": "bruno/environments/local.bru",
+        "bytes": 43,
+        "sha256": "44474fa7cff8f08a6d4a874b8a4e188622dd2b5d9c2ac82bcf534c28b7ea8410"
+      },
+      {
+        "path": "bruno/health-live.bru",
+        "bytes": 506,
+        "sha256": "201e27ae97719bfe3139b10840efcdfe9a76d8bc6c04e51eb2ab3864b80957fb"
+      },
+      {
+        "path": "bruno/health-method-not-allowed.bru",
+        "bytes": 930,
+        "sha256": "ad853fa57e6a20791b4b56c0277e31416326733ce1daa24b589360f031ecdbd2"
+      },
+      {
+        "path": "bruno/health-ready.bru",
+        "bytes": 543,
+        "sha256": "4c1c5784b083ecb92a12d02b7718547e0bba3e5200fb35959725598ae6fc023b"
+      },
+      {
+        "path": "cmd/api/main.go",
+        "bytes": 1726,
+        "sha256": "dc9ef97016f80a5a854a529c24f92293fb6527d9b67adce80330e60e4394b212"
+      },
+      {
+        "path": "cmd/dbcheck/main.go",
+        "bytes": 3885,
+        "sha256": "f700c91c22e633711bd7035f7f8c5c6179e091b75cdce461c2bb59918f7e43e2"
+      },
+      {
+        "path": "db/migrations/000001_platform_probe.down.sql",
+        "bytes": 118,
+        "sha256": "457a1664532afa87936f949f2dc44b28ba407adec0a01fbd10c3729a7abaef5f"
+      },
+      {
+        "path": "db/migrations/000001_platform_probe.up.sql",
+        "bytes": 312,
+        "sha256": "744d2449772639eec256fc83887bc2c30c40f7a4599631f0535bcdd3bb15f793"
+      },
+      {
+        "path": "deployments/local/compose.yaml",
+        "bytes": 1642,
+        "sha256": "cc5341cc68380ce08bc2ca68742dd0e5d78adc07b21e39191ce535950af52ddb"
+      },
+      {
+        "path": "deployments/local/init-db.sh",
+        "bytes": 1603,
+        "sha256": "8ab4a7e19270c56939570d25329904b563a7646221ce13743048c35488c66d22"
+      },
+      {
+        "path": "deployments/local/migrate.sh",
+        "bytes": 157,
+        "sha256": "3054db2b996665ccaca00abc6d94d26ecab77d2d2fdc28ec77f81bd2ea0b7530"
+      },
+      {
+        "path": "docs/architecture/overview.md",
+        "bytes": 4258,
+        "sha256": "fd0bd91e525d706dddffb1e0f42a4b24dff80f42c20009dadca60a6f64d6de17"
+      },
+      {
+        "path": "docs/architecture/phase-00-acceptance-review.md",
+        "bytes": 7790,
+        "sha256": "b9ed601fbbc8b092d109b1c60ce65524fa42ecdd1b8bd7b1be5f840fb9d16852"
+      },
+      {
+        "path": "docs/database/local.md",
+        "bytes": 6949,
+        "sha256": "73363dcf33f366355fc58129a10304c2ef60d775c33e898071fefbd185081871"
+      },
+      {
+        "path": "docs/decisions/0001-go-http-modular-monolith.md",
+        "bytes": 1251,
+        "sha256": "4e56731cac2c0faea02712c5c758695466864b013dcf6289851aaf72d55a1b57"
+      },
+      {
+        "path": "docs/decisions/0002-postgresql.md",
+        "bytes": 1316,
+        "sha256": "dad28df1bd561735152186bcc5ce576af807c2862847304b6ab41610a84d339a"
+      },
+      {
+        "path": "docs/decisions/0003-db-migrations.md",
+        "bytes": 2187,
+        "sha256": "4e2c140c598ead22c7fb0cc1b7e5cba74f31dbaa2d6ca5c49531ce11ae440507"
+      },
+      {
+        "path": "docs/decisions/0004-identity-codes.md",
+        "bytes": 1360,
+        "sha256": "c71387dea94d2c0e45defbc11250991b0719bf593e84ad3af441b25d9b5b674d"
+      },
+      {
+        "path": "docs/decisions/0005-authentication-authorization.md",
+        "bytes": 1542,
+        "sha256": "d9839513ecb3b380ad2574a4ec6392150e54390f8f62f928ae9c32114a53b6ab"
+      },
+      {
+        "path": "docs/decisions/0006-openapi-docs.md",
+        "bytes": 1568,
+        "sha256": "5d5e2b38c48653534657ab977750b0b7165e30821db448c16a35c6d64789964c"
+      },
+      {
+        "path": "docs/decisions/0007-private-storage.md",
+        "bytes": 1358,
+        "sha256": "169e5b22545cc3050876906345cbdac2f5de847898d8a64c3495026dd3d4deb3"
+      },
+      {
+        "path": "docs/decisions/0008-ci-testing.md",
+        "bytes": 1402,
+        "sha256": "46ecb933843d151169766adf81afd1eac767152a9dd9c086c14c5983bb563e98"
+      },
+      {
+        "path": "docs/decisions/0009-config-status-movements.md",
+        "bytes": 1384,
+        "sha256": "6b21eaa83c7cda6f876e44a776408755213f8ca7c102efffecf9cb38bff0fe2c"
+      },
+      {
+        "path": "docs/decisions/0010-consistency-open-decisions.md",
+        "bytes": 1511,
+        "sha256": "cb1fc10af27fe1089449373aab5c5eea90cdee8feb098fc56bf9b8871687b643"
+      },
+      {
+        "path": "docs/decisions/0011-dedicated-postgresql17-local.md",
+        "bytes": 5282,
+        "sha256": "ddbff66a0bb8f0be4ee88b2b5d761e7d0d7d6744cf292364216cd676decfcefc"
+      },
+      {
+        "path": "docs/decisions/README.md",
+        "bytes": 2928,
+        "sha256": "6ea22133ccb66619589ae0fbbc742a59bedd3bc1fe3de6985f6d5da9240ad6eb"
+      },
+      {
+        "path": "docs/phases/evidence/phase-00-bruno-transport.json",
+        "bytes": 489,
+        "sha256": "862360065ffcb8e0dd943c6848cf416647a8d961d0970c847cf187050431ddb9"
+      },
+      {
+        "path": "docs/phases/evidence/phase-00-clean-checkout.json",
+        "bytes": 4264,
+        "sha256": "65ffed3e8751cfaa7c4022ca8e7cc5e9073b66c79904a1c028a2f8891b389914"
+      },
+      {
+        "path": "docs/phases/evidence/phase-00-recovery-bootstrap.json",
+        "bytes": 6579,
+        "sha256": "b6335cd87b955a66ed56836caf240351150647b14953489d19ce55d993be73fd"
+      },
+      {
+        "path": "docs/phases/evidence/phase-00-recovery-git.json",
+        "bytes": 17314,
+        "sha256": "8b3415b6be9a61c559cbd6127ee8be9a00ac85b2fef775e75849d011432cb70b"
+      },
+      {
+        "path": "docs/phases/evidence/phase-00-recovery-inventory.json",
+        "bytes": 11994,
+        "sha256": "754c44123c26f257ca0a6d870c9e6bce248de66433633e57d51a36b631953724"
+      },
+      {
+        "path": "docs/phases/phase-00-browser-checklist.md",
+        "bytes": 4493,
+        "sha256": "de972fa6355229715db9f5bdf1754cbfd3d81716393bdec94e6304dff1086dfc"
+      },
+      {
+        "path": "docs/phases/phase-00-git-recovery.md",
+        "bytes": 5326,
+        "sha256": "d8e10779aac9fa5501584e727feb33f56c735bfae36346eb32da0e3b814d2e85"
+      },
+      {
+        "path": "docs/phases/phase-00-report.md",
+        "bytes": 20137,
+        "sha256": "19f341fa700faa146dc2794919e692cede992b55499b6d92ac222eeecb1b5806"
+      },
+      {
+        "path": "docs/phases/phase-00-staging-manifest.txt",
+        "bytes": 2049,
+        "sha256": "ef1cc9b572fde5ad2b15720f2825bb80b1ddfb83d926ce4fd508b0464aa8b710"
+      },
+      {
+        "path": "docs/phases/phase-00-verification-history.md",
+        "bytes": 77598,
+        "sha256": "f8b981f073eb1bb42a62a144be15745e313f1cead12f493fae573ca91ac8c54a"
+      },
+      {
+        "path": "docs/requirements/traceability.md",
+        "bytes": 9725,
+        "sha256": "f4af4d316ccacf0a38ecac163d2826be0cb8a13a1344ab453bb27fc56d5064fe"
+      },
+      {
+        "path": "go.mod",
+        "bytes": 370,
+        "sha256": "8f727c17eaad07ef0dc1eeb760f896d218f641df21f48d59ecf7c5e39cf5745b"
+      },
+      {
+        "path": "go.sum",
+        "bytes": 2301,
+        "sha256": "a5e7a8db07eba28dbde48bf9a54c4e9084a5a95ded581c0ff44c08b74e3dfe69"
+      },
+      {
+        "path": "internal/platform/config/config.go",
+        "bytes": 2535,
+        "sha256": "996c3916836445af90e888a516bb0a0b7672883de61f9a7e41961def57c7aa7d"
+      },
+      {
+        "path": "internal/platform/config/config_test.go",
+        "bytes": 1868,
+        "sha256": "0818165232b1564c06691b3e5313fef488e68aac15927845e5f3612a3c7b998c"
+      },
+      {
+        "path": "internal/platform/db/db.go",
+        "bytes": 632,
+        "sha256": "c7b64ca1c870520d27a61e2f52dba9dd38f082b0bb3982241f0bfc21571ee269"
+      },
+      {
+        "path": "internal/platform/httpx/server.go",
+        "bytes": 3567,
+        "sha256": "e658f533e491a9cf4dea67ff58ad69ef8e57c9001629d2157cc8c75fa622eba6"
+      },
+      {
+        "path": "internal/platform/httpx/server_test.go",
+        "bytes": 2993,
+        "sha256": "e7cbd66d5025b9d1535c869a4ef36cbabe4be80f5850237bb272fda602fdce93"
+      },
+      {
+        "path": "redocly.yaml",
+        "bytes": 107,
+        "sha256": "35a08335409d023d9649d37424758bc7d4db0b14d7f5cbd11e9c5a50abf03503"
+      },
+      {
+        "path": "scripts/api_smoke.py",
+        "bytes": 628,
+        "sha256": "ac535c5fb51330aad66400a1f5bdb0022e509328c925108b03306f357825148c"
+      },
+      {
+        "path": "scripts/db_preflight.py",
+        "bytes": 4802,
+        "sha256": "6ae280aaf88bc38e468b0d41bc6a5295f408764a1753ced98f5cfb53a757a149"
+      },
+      {
+        "path": "scripts/local_env.py",
+        "bytes": 8020,
+        "sha256": "bd8b5747b6729130d911e8b936bdefb21782b692f3f51a23a4343b058ae39041"
+      },
+      {
+        "path": "scripts/migrate.py",
+        "bytes": 2639,
+        "sha256": "38da8c62874eab17ee970901b1485dfb4bbd95a61e69abbc45c59cb7a657c2fe"
+      },
+      {
+        "path": "scripts/test_local_env.py",
+        "bytes": 4634,
+        "sha256": "1fb014ebd7d58402c5c7b0d99a8db10bdbe5a9b0a7129953a27fe9cec63c223c"
+      },
+      {
+        "path": "scripts/verify_phase0.sh",
+        "bytes": 2356,
+        "sha256": "7eebc8475349ea254f977b5e28bb7862fabe483a5bf00fe15e23a9102500a1c1"
+      },
+      {
+        "path": "tests/integration/db_test.go",
+        "bytes": 1490,
+        "sha256": "ea5615f87b046fc1f92c6740eee5381f51c47fc9fa2651ce483603cbe713fe7d"
+      },
+      {
+        "path": "tools/go.mod",
+        "bytes": 174,
+        "sha256": "404eaeb7a2291741b47c05db7d1c918df1bb6f9b8f57c6320d008467711da748"
+      },
+      {
+        "path": "tools/package-lock.json",
+        "bytes": 151881,
+        "sha256": "984dc06a70cb4429cac31f1378f64d9db02b04af3bea8afbcf6de0ad18b71e70"
+      },
+      {
+        "path": "tools/package.json",
+        "bytes": 293,
+        "sha256": "4166d229e25c43d855e00a0a043d77bde5b6f37c314740b841dc58962a4785d0"
+      }
+    ],
+    "tree": "dc4df5f3c23da83fd0b998fc5cde4a9e256712ba",
+    "cleanup": {
+      "result": "PASS",
+      "task_tree_removed": "/tmp/tgp-phase0-actual-head-f2171vtg",
+      "original_environment_and_shared_caches_preserved": true
+    }
   }
 }

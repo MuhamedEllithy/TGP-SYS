@@ -1,6 +1,6 @@
 # Repository instructions
 
-Read `ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md` completely before changes. It is the approved functional baseline; ADRs cannot silently change it. Current authorization: Phase 0 only. Phase 1 has NOT been authorized.
+Read `ASSET_MANAGEMENT_BACKEND_MASTER_PLAN.md` completely before changes. It is the approved functional baseline; ADRs cannot silently change it. Phase 0 is ACCEPTED AND CLOSED; see `docs/phases/phase-00-acceptance.md`. Current authorization is limited to final Phase 0 documentation/sign-off and its reviewed local commit. Phase 1A — Database Architecture and ERD Design is NOT STARTED and requires separate owner authorization.
 
 - Backend only. No business UI, deployment, production migration, remote push, reset, or deletion of user data.
 - Modular monolith: domain owns invariants; application services own authorization and transaction boundaries; adapters own HTTP/SQL. Never import another module's private repository or mutate its tables.

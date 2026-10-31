@@ -1,6 +1,6 @@
 # Scalar manual browser verification — Phase 0
 
-Result: **PENDING MANUAL VERIFICATION**. No browser evidence has been supplied. The owner must execute this checklist; HTTP HTML availability, OpenAPI lint and unit tests do not establish rendering or Try-it.
+Result: **PASS — Owner-confirmed manual browser verification.** The owner explicitly confirmed renderer/visible endpoints, working Try-it, a real GET `/health/live`, HTTP 200 and expected live response. No automated browser test or screenshot is claimed. The checklist below is retained for repeat/extended verification; its optional detailed readiness/model/console items are not individually attested by this confirmation.
 
 ## Configuration and safe setup
 
@@ -45,4 +45,4 @@ Do not print or share `.env` or DB credentials. No authentication is required fo
 - Browser origin is independent of the WSL-to-Windows host network path. If curl works in WSL but the browser cannot reach the API at all, first check host loopback forwarding rather than weakening API CORS.
 - A CORS/CSP message with a successful equivalent same-origin curl is browser-policy evidence, not proof the handler returned an error. Do not add wildcard CORS, disable browser security, loosen CSP, or expose the API externally as a workaround during acceptance.
 
-Static route/schema and handler tests are recorded separately in the final report. Actual model rendering and interactive behavior remain **PENDING MANUAL VERIFICATION**.
+Static route/schema and handler tests remain separate from owner manual evidence. The supplied renderer/GET-live Try-it observations close Phase 0 interactive-doc acceptance; no exhaustive per-model, readiness-browser or error-UI result is invented. See the final acceptance record.

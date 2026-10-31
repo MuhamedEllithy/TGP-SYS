@@ -1,7 +1,7 @@
 # ADR 0006: Contract-first OpenAPI and interactive reference
 
 Date: 2026-10-31  
-Status: Adopted; lint verified; HTTP docs availability host-reported PASS; Browser Try-it PENDING
+Status: Adopted; lint verified; real Bruno host execution PASS; Scalar Try-it PASS — Owner-confirmed manual verification
 
 ## Context
 
@@ -18,3 +18,7 @@ Code-first annotations risk hidden contract drift. Generated server interfaces c
 ## Verification / revisit gate
 
 See Phase 0 report for executed checks. Revisit before the affected domain schema/API or production operation. No ADR overrides the master plan's company/project, unit precision, inventory separation or historical integrity invariants.
+
+## Final Phase 0 evidence
+
+Owner-confirmed Scalar rendering/real GET-live Try-it and inspected owner-generated Bruno JSON (4/4 requests, 7/7 tests, 10/10 assertions) close the initial documentation/test workspace gate. No browser automation or full future business/auth API coverage is implied. See the acceptance record for provenance.
